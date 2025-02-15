@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TECHNOSAVIOUR 2025</title>
+    <title>TECHNOSAVIOUR 2025 - Royal High-Tech Edition</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Oswald:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
@@ -605,6 +605,41 @@
             margin: 0 auto;
         }
 
+        .google-map {
+            text-align: center;
+            padding: 30px 10px;
+        }
+
+        .google-map h2 {
+            font-size: 2em;
+            margin-bottom: 15px;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: #ffc107;
+            font-family: 'Oswald', sans-serif;
+        }
+
+        .google-map iframe {
+            width: 100%;
+            max-width: 800px;
+            height: 450px;
+            border: none;
+            border-radius: 15px;
+            margin: 0 auto 20px; /* Adds margin below the iframe */
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .google-map p {
+            color: #eee;
+            font-size: 1em;
+        }
+
+        .google-map i {
+            color: #ffc107;
+            margin-right: 5px;
+        }
+
         /* Footer */
         footer {
             text-align: center;
@@ -643,6 +678,85 @@
             color: #fff;
             transform: scale(1.2);
         }
+
+        /* Payment Details Section */
+#payment-details {
+    padding: 30px 10px;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    margin: 30px auto;
+    max-width: 800px;
+}
+
+#payment-details h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+    color: #ffc107;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-family: 'Oswald', sans-serif;
+}
+
+.payment-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.payment-item {
+    text-align: center;
+}
+
+.payment-item i {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: #ffc107;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+.payment-item h3 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.gpay-button a {
+    display: inline-block;
+    padding: 14px 28px; /* Slightly larger for prominence */
+    background-color: #34a853; /* Google Pay Green */
+    color: #fff;
+    text-decoration: none;
+    border-radius: 12px; /* More rounded corners */
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3); /* Deeper shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    font-weight: 600; /* Bolder text */
+    text-transform: uppercase; /* All caps */
+    letter-spacing: 0.5px; /* Slight letter spacing for a modern look */
+    border: 2px solid transparent; /* Invisible border for hover effect */
+}
+
+.gpay-button a:hover {
+    background-color: #298a47; /* Darker green on hover */
+    transform: translateY(-5px); /* More pronounced lift on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); /* Enhanced shadow on hover */
+    border-color: rgba(255, 255, 255, 0.3); /* Subtle white border on hover */
+}
+
+.qr-code {
+    margin-top: 20px;
+    max-width: 200px; /* Adjust as needed */
+}
+
+.qr-code img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
 
         /* Fade-in animation */
         @keyframes fadeIn {
@@ -1088,6 +1202,28 @@
         <iframe src="https://docs.google.com/forms/d/e/YOUR_GOOGLE_FORM_EMBED_LINK_HERE/viewform?embedded=true" width="640" height="879" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
     </section>
 
+</section>
+
+<!-- Payment Details Section -->
+<section id="payment-details">
+    <h2>Payment Information</h2>
+    <div class="payment-grid">
+        <div class="payment-item">
+            <i class="fas fa-user"></i>
+            <h3>Kharan P</h3>
+            <div class="gpay-button">
+                <a href="YOUR_GPAY_LINK_HERE" target="_blank">Pay with GPay</a>
+            </div>
+        </div>
+        <div class="qr-code">
+            <img src="YOUR_QR_CODE_IMAGE_URL_HERE" alt="GPay QR Code">
+        </div>
+    </div>
+</section>
+
+<!-- Official Section -->
+<section id="official">
+
     <!-- Official Section -->
     <section id="official">
         <div class="official-grid">
@@ -1148,7 +1284,12 @@
             </div>
         </div>
     </section>
-
+ <!-- Google Maps Section -->
+ <section class="google-map">
+    <h2>Location</h2>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3886.0186972942054!2d80.21556067576742!3d13.081746287293128!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a526691677c384d%3A0x511217e869b9b345!2sDwaraka%20Doss%20Goverdhan%20Doss%20Vaishnav%20College!5e0!3m2!1sen!2sin!4v1718358805688!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <h3><i class="fas fa-map-marker-alt"></i> DWARAKA DOSS GOVERDHAN DOSS VAISHNAV COLLEGE</h3>
+</section>
 </main>
 
 <footer>
