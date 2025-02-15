@@ -72,6 +72,12 @@
             letter-spacing: 1.5px;
         }
 
+        h3 { /* Styling the header sub-text */
+            font-size: 1.5em;
+            color: #ddd;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+
         h2 {
             font-size: 2.5em;
             margin: 40px 0;
@@ -335,29 +341,44 @@
              text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
         }
 
-        /* Media query for smaller screens */
-        @media (max-width: 768px) {  /* Adjusted breakpoint for common tablets */
+        /* Media queries for overall responsiveness */
+        @media (max-width: 768px) {
+            header {
+                padding: 30px;
+                margin-bottom: 30px;
+            }
+
             h1 {
                 font-size: 2.8em;
+                margin-bottom: 15px;
             }
+
+            h3 {
+                font-size: 1.3em;
+            }
+
             h2 {
                 font-size: 2em;
+                margin: 30px 0;
             }
+
             .event-options {
                 margin: 30px 0;
             }
-             .event-button {
+
+            .event-button {
                 font-size: 1.2em;
                 margin: 10px;
                 padding: 15px 25px;
             }
+
             .rules-list {
                 margin: 30px auto;
             }
-             .rules-list li {
+
+            .rules-list li {
                 padding: 18px;
             }
-
             .schedule-cards {
                 flex-direction: column;
                 align-items: center;
@@ -367,22 +388,61 @@
             }
         }
 
-        @media (max-width: 480px) {  /* Adjusted breakpoint for smaller phones */
+        @media (max-width: 480px) {
+            header {
+                padding: 20px;
+                margin-bottom: 20px;
+            }
+
             h1 {
                 font-size: 2.2em;
+                margin-bottom: 10px;
             }
-             h2 {
+             h3 {
+                font-size: 1em;
+            }
+
+            h2 {
                 font-size: 1.8em;
+                margin: 20px 0;
             }
+
             .event-button {
                 font-size: 1em;
                 padding: 12px 20px;
             }
+
             .rules-list li i {
                 font-size: 1.4em;
             }
+
              .schedule-card h4 {
                 font-size: 1.2em;
+            }
+        }
+        /* Header-Specific Styles for Mobile */
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 2.5em; /* Smaller title for very small screens */
+            }
+
+            header h3 {
+                font-size: 1.1em; /* Smaller subtitle */
+            }
+
+            header {
+                padding: 25px; /* Reduce padding */
+                margin-bottom: 25px;
+            }
+        }
+
+        @media (max-width: 375px) { /* Even smaller screens */
+            header h1 {
+                font-size: 2em;
+            }
+
+            header h3 {
+                font-size: 0.9em;
             }
         }
 
@@ -404,7 +464,7 @@
         <ul class="rules-list">
             <li><i class="fas fa-id-card"></i> The participants are requested to bring their college ID card/bonafide.</li>
             <li><i class="fas fa-link"></i> Participants need to fill the Registration link to confirm their participation before 26.02.2025 and to join whatsapp group for further updates.</li>
-            <li><i class="fas fa-money-bill-wave"></i> Registration fee for each participant is Rs. 100/- have to be paid via Gpay number: **, Name of the payee: **</li>
+            <li><i class="fas fa-money-bill-wave"></i> Registration fee for each participant is Rs. 100/- have to be paid. Payment details is given in the home screen below the registration form.</li>
             <li><i class="fas fa-calendar-alt"></i> Each student can register for maximum two events after ensuring that timings doesn't overlap.</li>
             <li><i class="fas fa-users"></i> For group events each student should register individually and one from group can make a single payment.</li>
             <li><i class="fas fa-clock"></i> The participants are requested to be present 15 minutes prior to the inaugural function.</li>
