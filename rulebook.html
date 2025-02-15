@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rulebook - TECHNOSAVIOUR 2025</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        /* CSS Reset (Normalize) */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            line-height: 1.5;
+            font-size: 16px;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to bottom right, #1e0038, #6a1b9a);
+            color: #ffffff;
+            padding: 20px;
+            position: relative;
+            min-height: 100vh; /* Ensure at least full viewport height */
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #ffc107;
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #ffca28;
+        }
+
+        header {
+            text-align: center;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+            transition: background 0.3s;
+        }
+
+        header:hover {
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        h1 {
+            font-size: 3em;
+            color: #ffc107;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+            letter-spacing: 1px;
+        }
+
+        h2 {
+            font-size: 2.2em;
+            margin: 30px 0;
+            color: #ffc107;
+            text-align: center;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+
+        p {
+            margin-bottom: 20px;
+            color: #ddd;
+            line-height: 1.7;
+        }
+
+        .rules-list {
+            list-style-type: none;
+            padding: 0;
+            margin: 30px auto;
+            text-align: left;
+            max-width: 700px;
+        }
+
+        .rules-list li {
+            background: rgba(255, 255, 255, 0.1);
+            margin: 15px 0;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
+            display: flex;
+            align-items: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .rules-list li:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+        }
+
+        .rules-list li i {
+            margin-right: 15px;
+            color: #ffc107;
+            font-size: 1.5em;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        main {
+            flex: 1; /* Allows main to grow and push footer down */
+            padding-bottom: 40px; /* Add padding to the bottom of main */
+        }
+
+        .event-options {
+            margin: 40px 0;
+            text-align: center;
+        }
+
+        .event-button {
+            position: relative;
+            background: rgba(255, 255, 255, 0.1);
+            margin: 15px;
+            padding: 18px 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 12px rgba(0, 0, 0, 0.5);
+            display: inline-block;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s, color 0.3s;
+            color: #ffc107;
+            text-decoration: none;
+            font-size: 1.3em;
+            overflow: hidden;
+        }
+
+        .event-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, rgba(255,193,7,0) 0%, rgba(255,193,7,0.3) 50%, rgba(255,193,7,0) 100%);
+            transform: translateX(-100%);
+            transition: transform 0.4s ease-in-out;
+        }
+
+        .event-button:hover {
+            transform: scale(1.08);
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.6);
+            color: #fff;
+        }
+
+        .event-button:hover::before {
+            transform: translateX(0);
+        }
+
+        .social-links a {
+            color: #ffc107;
+            margin: 0 10px;
+            font-size: 1.2em;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: #fff;
+            transform: scale(1.1);
+        }
+
+        /* 3D Background Effect */
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, rgba(0, 0, 0, 0.3) 100%);
+            z-index: -1;
+            animation: backgroundAnimation 10s infinite alternate;
+            pointer-events: none; /* Make it non-interactive */
+        }
+
+        @keyframes backgroundAnimation {
+            0% {
+                transform: scale(1);
+            }
+            100% {
+                transform: scale(1.05);
+            }
+        }
+
+         /* Footer Styles */
+        footer {
+            text-align: center;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.1);
+            color: #eee;
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+            margin-top: 30px;
+            transition: background 0.3s;
+        }
+
+        footer:hover {
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .contact-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 15px;
+            padding: 12px 25px;
+            background: rgba(255, 255, 255, 0.1);
+            color: #ffc107;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s, color 0.3s, transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+            border: 1px solid #ffc107;
+        }
+
+        .contact-button:hover {
+            background: #ffc107;
+            color: #333;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 12px rgba(0, 0, 0, 0.5);
+        }
+
+        .contact-button i {
+            margin-right: 8px;
+            font-size: 1.2em;
+        }
+
+        .footer-text {
+            margin-top: 15px;
+            font-size: 0.9em;
+            color: #ddd;
+        }
+    </style>
+</head>
+<body>
+
+<div class="background"></div>
+
+<header>
+    <h1>Rulebook for TECHNOSAVIOUR 2025</h1>
+    <h3>Welcome to the official rulebook for the event. Please read the rules carefully.</h3>
+    <h3>Detailed Event rules are given below via options.</h3>
+</header>
+
+<main>
+    <section>
+        <h2>General Instructions</h2>
+        <ul class="rules-list">
+            <li><i class="fas fa-id-card"></i> The participants are requested to bring their college ID card/bonafide.</li>
+            <li><i class="fas fa-link"></i> Participants need to fill the Registration link to confirm their participation before 26.02.2025 and to join whatsapp group for further updates.</li>
+            <li><i class="fas fa-money-bill-wave"></i> Registration fee for each participant is Rs. 100/- have to be paid via Gpay number: **, Name of the payee: **</li>
+            <li><i class="fas fa-calendar-alt"></i> Each student can register for maximum two events after ensuring that timings doesn't overlap.</li>
+            <li><i class="fas fa-users"></i> For group events each student should register individually and one from group can make a single payment.</li>
+            <li><i class="fas fa-clock"></i> The participants are requested to be present 15 minutes prior to the inaugural function.</li>
+            <li><i class="fas fa-check-circle"></i> Confirmation of prior registrations and spot registration for some events will take place between 08.00 am to 09.15 am on 27.12.2023. No further registrations will be encouraged.</li>
+            <li><i class="fas fa-map-marker-alt"></i> The participants must reach their respective event venues on time and updates regarding venues will be posted via whatsapp group.</li>
+            <li><i class="fas fa-coffee"></i> Refreshments will be provided.</li>
+        </ul>
+    </section>
+
+    <section class="event-options">
+        <h2>Event Options</h2>
+        <a class="event-button" href="onstage.html"><i class="fas fa-theater-masks"></i> Onstage Events</a>
+        <a class="event-button" href="offstage.html"><i class="fas fa-clipboard-list"></i> Offstage Events</a>
+        <a class="event-button" href="online.html"><i class="fas fa-laptop-code"></i> Online Events</a>
+    </section>
+</main>
+
+<footer>
+    <p><a href="index.html#contact" class="contact-button"><i class="fas fa-address-book"></i> Contact Us</a></p>
+    <p class="footer-text">© 2025 TECHNOSAVIOUR. All rights reserved.</p>
+    <p class="footer-text">Designed by KB</p>
+</footer>
+
+</body>
+</html>

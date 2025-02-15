@@ -1,0 +1,1219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TECHNOSAVIOUR 2025 - Royal High-Tech Edition</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Oswald:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        /* CSS Reset (Normalize) */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            line-height: 1.5;
+            -webkit-text-size-adjust: 100%; /* Prevent iOS text zoom */
+            text-rendering: optimizeSpeed;
+            font-size: 16px; /* Base font size for rem units */
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        /* General Styles */
+        body {
+            font-family: 'Oswald', sans-serif;
+            background: linear-gradient(to bottom, #1e0038, #6a1b9a, #e91e63);
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        /* Add a subtle overlay for texture */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cg fill='%23000000' fill-opacity='0.03'%3E%3Cpath d='M0 0h100v100H0V0zM50 50a20 20 0 1 0 0 0.001zM50 10a40 40 0 1 1 0 0.001zM10 50a40 40 0 1 1 0 0.001zM50 90a40 40 0 1 1 0 0.001zM90 50a40 40 0 1 1 0 0.001zM10 10a40 40 0 1 1 0 0.001zM90 90a40 40 0 1 1 0 0.001zM10 90a40 40 0 1 1 0 0.001zM90 10a40 40 0 1 1 0 0.001z'/%3E%3C/g%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        /* Header */
+        header {
+            display: flex;
+            justify-content: space-between; /* Distribute space evenly */
+            align-items: center; /* Vertically align items */
+            padding: 10px;
+            background-color: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(12px);
+            border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .college-logo, .biotech-logo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 25%; /* Take up 25% of available width */
+            max-width: 120px; /* Set a maximum width */
+            height: auto;
+        }
+
+       .college-logo img, .biotech-logo img {
+            max-width: 100%;
+            max-height: 100%;
+            display: block; /* Ensure images are treated as blocks */
+        }
+
+        .header-text {
+            flex-grow: 1; /* Allow text area to take up remaining space */
+            text-align: center; /* Center the text within this area */
+            padding: 0 5px; /* Add some horizontal padding */
+        }
+
+        .header-text h1 {
+            color: #ffffff;
+            margin: 0;
+            font-size: 1.3em;
+            font-weight: 700;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .header-text p {
+            color: #eee;
+            margin: 2px 0;
+            font-size: 0.7em;
+        }
+
+        .header-text h2 {
+            color: #ffffff;
+            font-size: 1em;
+            font-weight: 600;
+            margin: 5px 0;
+        }
+
+
+        /* Main Content */
+        main {
+            position: relative;
+        }
+
+        /* Hero Section */
+        #hero {
+            padding: 40px 10px;
+            text-align: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .club-logo-space {
+            margin-bottom: 20px;
+        }
+
+        .club-logo-space img {
+            width: 150px;  /* Adjust the size as needed */
+            height: auto;    /* Maintain aspect ratio */
+            display: block;   /* Remove extra space */
+            margin: 0 auto;  /* Center horizontally */
+        }
+
+        #hero h1 {
+            font-size: 2.5em;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #ffc107;
+        }
+
+        #hero p {
+            font-size: 1em;
+            color: #eee;
+            margin-bottom: 20px;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 10px;
+            flex-direction: column; /* Stack on mobile */
+            align-items: center; /* Center buttons */
+        }
+
+        .hero-button {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            border: 2px solid #ffc107;
+            padding: 8px 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.9em;
+            font-weight: 500;
+            text-decoration: none;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            width: 80%;
+            text-align: center;
+        }
+
+        /* Event Details Section */
+        #event-details {
+            padding: 20px 10px;
+            position: relative;
+            overflow: hidden;
+            margin: 20px auto;
+            max-width: 800px;
+            border-radius: 20px;
+            background-color: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        #event-details h2 {
+            text-align: center;
+            font-size: 1.8em;
+            font-weight: 600;
+            margin-bottom: 15px;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: #ffc107;
+        }
+
+        .event-details-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 10px;
+        }
+
+        .event-detail {
+            text-align: center;
+            width: 180px;
+            padding: 10px;
+            background-color: rgba(255, 255, 255, 0.15);
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin-bottom: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .event-detail:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+        }
+
+        .event-detail i {
+            font-size: 2em;
+            color: #ffc107;
+            margin-bottom: 8px;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        .event-detail h3 {
+            font-size: 1.2em;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .event-detail p {
+            color: #eee;
+            font-size: 0.9em;
+            line-height: 1.4;
+        }
+
+        /* Slideshow Container */
+        .slideshow-container {
+            max-width: 800px;
+            position: relative;
+            margin: auto;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        /* Hide the images by default */
+        .mySlides {
+            display: none;
+            position: relative;
+            border-radius: 15px;
+        }
+
+        /* Image inside a glassmorphism frame */
+        .mySlides img {
+            width: 100%;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+            background-color: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(12px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            padding: 10px;
+            box-sizing: border-box;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        /* Make photos Zoom a bit*/
+        .mySlides img:hover {
+            transform: scale(1.1);
+        }
+
+        /* Next & previous buttons */
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: 40px;
+            height: 40px;
+            margin-top: -20px;
+            padding: 5px;
+            color: white;
+            font-weight: bold;
+            font-size: 1.2em;
+            transition: 0.3s ease;
+            border-radius: 50%;
+            user-select: none;
+            background-color: rgba(0, 0, 0, 0.5);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            z-index: 10;
+        }
+
+        /* Position the "next button" to the right */
+        .next {
+            right: 10px;
+        }
+
+        /* Position the "prev button" to the left */
+        .prev {
+            left: 10px;
+        }
+
+        /* On hover, add a darker background color and scale effect */
+        .prev:hover, .next:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+            transform: scale(1.1);
+        }
+
+        /* Fading animation */
+        .fade {
+            animation-name: fade;
+            animation-duration: 1.5s;
+        }
+
+        @keyframes fade {
+            from {opacity: .4}
+            to {opacity: 1}
+        }
+
+        #gallery {
+            padding: 30px 10px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            margin: 20px auto;
+            max-width: 800px;
+            border-radius: 20px;
+            background-color: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        #gallery h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: #ffc107;
+        }
+
+        /* Add a subtle translation */
+        #gallery {
+            animation: fadeIn 1.5s ease-out forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Google Form */
+        #google-form {
+            padding: 30px 10px;
+            text-align: center;
+        }
+
+        #google-form h2 {
+            font-size: 2em;
+            margin-bottom: 15px;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+            color: #ffc107;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        #google-form iframe {
+            width: 100%;
+            max-width: 800px;
+            height: 600px;
+            margin: 0 auto;
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+        }
+
+         /* Contacts */
+        #contact {
+            padding: 30px 10px;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        #contact h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: #ffc107;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            gap: 10px;
+            max-width: 100%;
+            margin: 0 auto;
+        }
+
+        .contact-item {
+            text-align: center;
+            padding: 15px;
+            border-radius: 15px;
+            background-color: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.5s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            position: relative; /* For positioning the touch icon */
+            opacity: 0; /* Start hidden for fade-in effect */
+            animation: fadeIn 1s ease-in-out forwards; /* Trigger fade-in animation */
+        }
+
+        /* Hover Effect */
+        .contact-item:hover {
+            transform: scale(1.05); /* Slight zoom on hover */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Fade-in Animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px); /* Start slightly below */
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0); /* Move to original position */
+            }
+        }
+
+        .contact-item i {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+        }
+
+        .contact-item h3 {
+            font-size: 1.2em;
+            margin-bottom: 5px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .contact-item p {
+            color: #eee;
+            font-size: 0.9em;
+        }
+
+        /* Modern Touch Icon */
+        .touch-icon {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            font-size: 1.8em;                        /* Slightly larger for prominence */
+            color: rgba(255, 255, 255, 0.7);         /* Soft white with transparency */
+            backdrop-filter: blur(5px);              /* Frosted glass effect */
+            padding: 8px;
+            border-radius: 50%;                      /* Perfect circle */
+            border: 1px solid rgba(255, 255, 255, 0.3); 
+            transition: transform 0.5s ease, opacity 0.4s ease, box-shadow 0.4s ease;
+            cursor: pointer;
+            opacity: 0.9;
+        }
+
+        /* Hover Effect */
+        .touch-icon:hover {
+            transform: scale(1.3) translateY(-5px);  /* Gentle lift with scaling */
+            opacity: 1;
+            box-shadow: 0 8px 20px rgba(255, 255, 255, 0.5);  /* Soft glow shadow */
+        }
+
+        /* Ripple Animation */
+        @keyframes rippleEffect {
+            0% {
+                box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4);
+            }
+            70% {
+                box-shadow: 0 0 0 15px rgba(255, 255, 255, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+            }
+        }
+
+        /* Apply Ripple on Hover */
+        .touch-icon:hover {
+            animation: rippleEffect 1.5s infinite;
+        }
+
+
+        #official {
+             padding: 30px 10px;
+            text-align: center;
+             overflow: hidden;
+        }
+
+        #official h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: #ffc107;
+        }
+
+        .official-grid {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            gap: 10px;
+            max-width: 100%;
+            margin: 0 auto;
+        }
+
+        .official-item {
+            text-align: center;
+            padding: 15px;
+            border-radius: 15px;
+            background-color: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: transform 0.5s ease, box-shadow 0.5s ease, opacity 0.5s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            opacity: 0.8; /* Starting with slightly transparent */
+            cursor: pointer;
+        }
+
+        /* Fade-in and slight zoom on hover */
+        .official-item:hover {
+            transform: scale(1.1);        /* Slight zoom effect */
+            opacity: 1;                   /* Full opacity on hover */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5); /* Enhanced shadow */
+        }
+
+        /* Smooth entry fade-in animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px); /* Starts slightly below */
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);     /* Moves into position */
+            }
+        }
+
+        /* Apply animation when the items first load */
+        .official-item {
+            animation: fadeIn 1s ease-in-out both;
+        }
+
+        .official-item i {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+        }
+
+        .official-item h3 {
+            font-size: 1.2em;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .official-item p {
+            color: #eee;
+            font-size: 0.9em;
+        }
+
+
+        #about-college,
+        #about-department,
+        #about-club {
+            padding: 30px 10px;
+            text-align: center;
+        }
+
+        #about-college h2,
+        #about-department h2,
+        #about-club h2 {
+            font-size: 2em;
+            margin-bottom: 15px;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+        }
+
+        #about-college p,
+        #about-department p,
+        #about-club p {
+            font-size: 1em;
+            color: #ddd;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px 10px;
+            background-color: rgba(0, 0, 0, 0.2);
+            color: #ccc;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            animation: fadeIn 1s ease-in;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .copyright {
+            font-size: 1em;
+            margin-bottom: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .social-links a {
+            color: #ffc107;
+            font-size: 1.2em;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: #fff;
+            transform: scale(1.2);
+        }
+
+        /* Fade-in animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Media Queries (Mobile First) */
+        @media (min-width: 768px) { /* Tablets and Larger */
+            header {
+                padding: 15px;
+            }
+
+            .header-text h1 {
+                font-size: 1.8em;
+            }
+
+            .header-text p {
+                font-size: 0.8em;
+            }
+
+            .header-text h2 {
+                font-size: 1.2em;
+            }
+
+            .college-logo, .biotech-logo {
+                max-width: 150px;
+            }
+
+            #hero {
+                padding: 60px 20px;
+            }
+            #hero h1 {
+                font-size: 3em;
+            }
+            #hero p {
+                font-size: 1.1em;
+            }
+            .hero-buttons {
+                flex-direction: row;
+                justify-content: center;
+            }
+            .hero-button {
+                width: auto;
+                padding: 10px 20px;
+            }
+            #event-details {
+                padding: 30px 20px;
+                margin: 30px auto;
+            }
+            #event-details h2 {
+                font-size: 2em;
+            }
+            .event-detail {
+                width: 200px;
+                padding: 15px;
+                margin-bottom: 15px;
+            }
+            .event-detail i {
+                font-size: 2.5em;
+            }
+            .event-detail h3 {
+                font-size: 1.3em;
+            }
+            .event-detail p {
+                font-size: 1em;
+            }
+            #gallery {
+                padding: 40px 20px;
+            }
+            #gallery h2 {
+                font-size: 2.5em;
+            }
+            #google-form {
+                padding: 40px 20px;
+            }
+            #google-form h2 {
+                font-size: 2.5em;
+            }
+            #contact {
+                padding: 40px 20px;
+            }
+            #contact h2 {
+                font-size: 2.5em;
+            }
+            .contact-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+            .contact-item {
+                padding: 20px;
+            }
+            .contact-item i {
+                font-size: 1.8em;
+            }
+            .contact-item h3 {
+                font-size: 1.3em;
+            }
+            .contact-item p {
+                font-size: 1em;
+            }
+             #official {
+                padding: 40px 20px;
+            }
+
+            #official h2 {
+                font-size: 2.5em;
+            }
+
+            .official-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+
+            .official-item {
+                padding: 20px;
+            }
+
+            .official-item i {
+                font-size: 1.8em;
+            }
+
+            .official-item h3 {
+                font-size: 1.3em;
+            }
+
+            .official-item p {
+                font-size: 1em;
+            }
+
+            #about-college,
+            #about-department,
+            #about-club {
+                padding: 40px 20px;
+            }
+            #about-college h2,
+            #about-department h2,
+            #about-club h2 {
+                font-size: 2.5em;
+            }
+            #about-college p,
+            #about-department p,
+            #about-club p {
+                font-size: 1.1em;
+            }
+            footer {
+                padding: 25px 20px;
+            }
+            .copyright {
+                font-size: 1.1em;
+            }
+            .social-links {
+                max-width: 500px;
+            }
+            .social-links a {
+                font-size: 1.4em;
+            }
+        }
+
+        @media (min-width: 1024px) { /* Desktops and Larger */
+            header {
+                padding: 20px;
+            }
+
+            .header-text h1 {
+                font-size: 2.2em;
+            }
+
+            .header-text p {
+                font-size: 0.9em;
+            }
+
+            .header-text h2 {
+                font-size: 1.4em;
+            }
+
+             .college-logo, .biotech-logo {
+                max-width: 150px;
+            }
+
+            #hero {
+                padding: 80px 20px;
+            }
+
+            #hero h1 {
+                font-size: 3.5em;
+            }
+
+            #hero p {
+                font-size: 1.3em;
+            }
+
+            .hero-buttons {
+                flex-direction: row;
+                justify-content: center;
+            }
+
+            .hero-button {
+                padding: 12px 25px;
+            }
+
+            #event-details {
+                padding: 40px 20px;
+                margin: 30px auto;
+            }
+
+            #event-details h2 {
+                font-size: 2.5em;
+            }
+
+            .event-detail {
+                width: 220px;
+                padding: 20px;
+                margin-bottom: 15px;
+            }
+
+            .event-detail i {
+                font-size: 3em;
+            }
+
+            .event-detail h3 {
+                font-size: 1.4em;
+            }
+
+            .event-detail p {
+                font-size: 1.1em;
+            }
+
+            #gallery {
+                padding: 60px 20px;
+            }
+
+            #gallery h2 {
+                font-size: 3em;
+            }
+
+            #google-form {
+                padding: 60px 20px;
+            }
+
+            #google-form h2 {
+                font-size: 3em;
+            }
+
+            #contact {
+                padding: 60px 20px;
+            }
+
+            #contact h2 {
+                font-size: 3em;
+            }
+
+            .contact-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+
+            .contact-item {
+                padding: 25px;
+            }
+
+            .contact-item i {
+                font-size: 2em;
+            }
+
+            .contact-item h3 {
+                font-size: 1.4em;
+            }
+
+            .contact-item p {
+                font-size: 1.1em;
+            }
+            #official {
+                padding: 60px 20px;
+            }
+            #official h2 {
+                font-size: 3em;
+            }
+
+            .official-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+
+            .official-item {
+                padding: 25px;
+            }
+
+            .official-item i {
+                font-size: 2em;
+            }
+
+            .official-item h3 {
+                font-size: 1.4em;
+            }
+
+            .official-item p {
+                font-size: 1.1em;
+            }
+
+            #about-college,
+            #about-department,
+            #about-club {
+                padding: 60px 20px;
+            }
+
+            #about-college h2,
+            #about-department h2,
+            #about-club h2 {
+                font-size: 3em;
+            }
+
+            #about-college p,
+            #about-department p,
+            #about-club p {
+                font-size: 1.2em;
+            }
+
+            footer {
+                padding: 30px 20px;
+            }
+
+            .copyright {
+                font-size: 1.2em;
+            }
+
+            .social-links {
+                max-width: 600px;
+            }
+
+            .social-links a {
+                font-size: 1.5em;
+            }
+        }
+
+        /* Debugging - REMOVE FOR PRODUCTION */
+        /* * {
+            outline: 1px solid rgba(255, 0, 0, 0.1) !important;
+        } */
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="college-logo"><img src="dgvc-removebg-preview.png" alt="College Logo"></div>
+    <div class="header-text">
+        <h1>DWARAKA DOSS GOVERDHAN DOSS VAISHNAV COLLEGE</h1>
+        <p>(Autonomous)</p>
+        <p>Re-accredited by NAAC with A++ Grade in 3rd Cycle</p>
+        <p>College with Potential for Excellence, Linguistic Minority Institution</p>
+        <p>Affiliated to University of Madras, Arumbakkam, Chennai – 600 106</p>
+        <h2>POST GRADUATE DEPARTMENT OF BIOTECHNOLOGY</h2>
+        <p>PROUDLY PRESENTS</p>
+    </div>
+    <div class="biotech-logo"><img src="601.png" alt="Biotech Logo"></div>
+</header>
+
+<main>
+
+    <!-- Hero Section -->
+    <section id="hero">
+        <div class="club-logo-space">
+            <img src="techno.png" alt="Club Logo">
+        </div>
+        <h1>TECHNOSAVIOUR 2025</h1>
+        <p>A fest exclusively for Life Science Students</p>
+        <div class="hero-buttons">
+            <a href="#google-form" class="hero-button" onclick="smoothScroll('#google-form')">Register Now</a>
+            <a href="rulebook.html" class="hero-button">Rulebook</a>
+            <a href="Techno Flyer.pdf" class="hero-button">Flyer</a>
+        </div>
+    </section>
+
+    <!-- Event Details Section -->
+    <section id="event-details">
+        <h2>Event Details</h2>
+        <div class="event-details-container">
+            <div class="event-detail">
+                <i class="fas fa-calendar-alt"></i>
+                <h3>Date</h3>
+                <p>27 February 2025</p>
+            </div>
+            <div class="event-detail">
+                <i class="fas fa-clock"></i>
+                <h3>Time</h3>
+                <p>9am Onwards</p>
+            </div>
+            <div class="event-detail">
+                <i class="fas fa-map-marker-alt"></i>
+                <h3>Venue</h3>
+                <p>Vallabhacharya Auditorium</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery">
+        <h2>Gallery</h2>
+        <div class="slideshow-container">
+
+            <div class="mySlides fade">
+                <img src="1.jpg" alt="Gallery Image 1">
+            </div>
+
+            <div class="mySlides fade">
+                <img src="2.jpg" alt="Gallery Image 2">
+            </div>
+
+            <div class="mySlides fade">
+                <img src="3.jpg" alt="Gallery Image 3">
+            </div>
+            
+            <div class="mySlides fade">
+                <img src="4.jpg" alt="Gallery Image 4">
+            </div>
+
+            <a class="prev" onclick="plusSlides(-1)">❮</a>
+            <a class="next" onclick="plusSlides(1)">❯</a>
+
+        </div>
+    </section>
+
+    <!-- About the College Section -->
+    <section id="about-college">
+        <h2>About the College</h2>
+        <p>Dwaraka Doss Goverdhan Doss Vaishnav College, a linguistic minority institution established in the year 1964 by the Rajasthanis and Gujaratis settled in Chennai for the cause of higher education. The college with a sole purpose of imparting knowledge and value based education saw its grand day on 30th June 1964 with one course in B.Sc. Mathematics with Shri. Totadri Iyengar ( teacher of Dr. APJ Abdul Kalam) as its first Principal. Dwaraka Doss Goverdhan Doss Vaishnav College has been a haven for generations of enthusiastic learners through five decades and more. College was founded on the principles of Vaishnavism, with the sole purpose of imparting value based quality education and empowering the youth. The college has seen a phenomenal growth in terms of its infrastructure, its constantly restructured and revamped curriculum to cater to the specific needs of the students community. Outstanding performance of the students in academics and extension activities has enabled the college to emerge one of the premier institutions of higher learning.</p>
+    </section>
+
+    <!-- About the Department Section -->
+    <section id="about-department">
+        <h2>About the Department</h2>
+        <p>The Department of Biotechnology was established in the year 2001 with the aim of offering quality higher education to the students in the field of Biotechnology and motivating them to reach the pinnacle of success. The Department presently offers B.Sc Biotechnology and M.Sc Biotechnology in accordance with the Choice Based Credit System (CBCS), which allows students to opt for subjects on the basis of their area of interest. Over the years, the department is working constantly to enhance and build young talents who can excel in research and different areas of life sciences. With the focus to provide an excellent environment for holistic development, the department is actively involved in organizing conferences, seminars, workshops, training and entrepreneurship programmes. The department coordinates guest talks by prominent resource persons and organizes field visits to Industrial and Research Institutes in order to benefit students with an exposure in research areas. Its pioneering curriculum with interdisciplinary areas focuses on practical training in environmental biotechnology, plant biotechnology, animal biotechnology, stem cell technology, molecular cell biology, immunology, recombinant technology, protein engineering, and bioinformatics. The Department has state-of-the-art laboratories and is equipped with various instruments including CO2 incubator, Inverted microscope, UV-visible spectrophotometer, Lyophilizer, 96 well plate reader, Thermal cycler, High speed cooling centrifuge, Deep freezer, Ultrasonicator, Monocular and Binocular Microscopes, UV transilluminator, Microtome, Digital colorimeter, Hot air oven, Rotary shaker incubators, Tissue homogeniser etc., along with other ancillary instruments to facilitate academic cum research activities among the students. The Biotechnology department is also equipped with a separate library consisting of more than 750 books along with internet facilities available for the benefit of the students.</p>
+    </section>
+
+    <!-- About the Club Section -->
+    <section id="about-club">
+        <h2>About the Club</h2>
+        <p>TECHNOSAVIOUR, the Biotechnology Student Association, is a powerhouse of intellectual exploration, fostering a dynamic community where curiosity meets innovation. We are dedicated to igniting young minds, refining communication skills, and nurturing talents beyond the classroom. Through a fusion of cutting-edge research exposure, transformative learning experiences, and stimulating co-curricular activities, we empower students to push boundaries, challenge conventions, and pioneer breakthroughs in biotechnology. At TECHNOSAVIOUR, we don’t just learn—we lead, discover, and redefine the future of science.</p>
+    </section>
+
+    <!-- Google Forms Section -->
+    <section id="google-form">
+        <h2>Registration Form</h2>
+        <h3>Kindly go through the rulebook before Registration</h3>
+        <iframe src="https://docs.google.com/forms/d/e/YOUR_GOOGLE_FORM_EMBED_LINK_HERE/viewform?embedded=true" width="640" height="879" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+    </section>
+
+    <!-- Official Section -->
+    <section id="official">
+        <div class="official-grid">
+            <div class="official-item">
+                <i class="fas fa-user"></i>
+                <h3>Capt. Dr. S. Santhosh Baboo</h3>
+                <p>Principal</p>
+            </div>
+            <div class="official-item">
+                <i class="fas fa-user"></i>
+                <h3>Shri. Ashok Kumar Mundhra</h3>
+                <p>Secretary</p>
+            </div>
+            <div class="official-item">
+                <i class="fas fa-user"></i>
+                <h3>Dr. M.D. BalaKumaran</h3>
+                <p>Asst. Prof., & Head, PG Dept of Biotechnology</p>
+            </div>
+            <div class="official-item">
+                <i class="fas fa-user"></i>
+                <h3>Dr. M. Pavithra</h3>
+                <p>Organizing Secretary</p>
+                <p>Asst. Prof., PG Dept of Biotechnology</p>
+            </div>
+        </div>
+    </section>
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <div class="contact-grid">
+            <div class="contact-item" onclick="window.location.href='tel:7092749563'">
+                <i class="fas fa-user"></i>
+                <h3>Ms. Hemapriya</h3>
+                <p><i class="fas fa-phone"></i> 7092749563</p>
+                <p>President</p>
+                <i class="fas fa-hand-pointer touch-icon"></i>
+            </div>
+            <div class="contact-item" onclick="window.location.href='tel:7397553977'">
+                <i class="fas fa-user"></i>
+                <h3>Mr. Abilash</h3>
+                <p><i class="fas fa-phone"></i> 7397553977</p>
+                <p>Vice President</p>
+                <i class="fas fa-hand-pointer touch-icon"></i>
+            </div>
+            <div class="contact-item" onclick="window.location.href='tel:6374694374'">
+                <i class="fas fa-user"></i>
+                <h3>Mr. Kharan</h3>
+                <p><i class="fas fa-phone"></i> 6374694374</p>
+                <p>Secretary</p>
+                <i class="fas fa-hand-pointer touch-icon"></i>
+            </div>
+            <div class="contact-item" onclick="window.location.href='tel: 9445505156'">
+                <i class="fas fa-user"></i>
+                <h3>Mr. Kuralarasshan</h3>
+                <p><i class="fas fa-phone"></i> 9445505156</p>
+                <p>Joint Secretary</p>
+                <i class="fas fa-hand-pointer touch-icon"></i>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<footer>
+    <div class="footer-content">
+        <div class="copyright">© 2025 Dwaraka Doss Goverdhan Doss Vaishnav College. All rights reserved.</div>
+        <div class="copyright">Follow us on our Social Media pages</div>
+        <div class="copyright">Designed by KB</div>
+        <div class="social-links">
+            <a href="#" onclick="window.location.href='https://www.instagram.com/dgvc_biotech?igsh=MW0zNnF6cmhkc3U5Mg=='">
+                <i class="fab fa-instagram"></i>
+                <h6>DGVC-BIOTECH</h6>
+            </a>              
+            <a href="#" onclick="window.location.href='https://www.instagram.com/technosaviourclub?igsh=cG4zZ2o3dWhzbzZz'">
+                <i class="fab fa-instagram"></i>
+                <h6>TECHNOSAVIOUR</h6>
+            </a>
+            <a href="#" onclick="window.location.href='https://www.linkedin.com/company/dgvcbiotech/'">
+                <i class="fab fa-linkedin"></i>
+                <h6>DGVC-BIOTECH</h6>
+            </a>
+            <a href="#" onclick="window.location.href='https://youtube.com/@dgvcbiotech6733'">
+                <i class="fab fa-youtube"></i>
+                <h6>DGVC-BIOTECH</h6>
+            </a>          
+        </div>
+    </div>
+</footer>
+
+<script>
+    let slideIndex = 0;
+    showSlides();
+
+    function showSlides() {
+        let i;
+        const slides = document.getElementsByClassName("mySlides");
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";  
+        }
+        slideIndex++;
+        if (slideIndex > slides.length) {slideIndex = 1}    
+        slides[slideIndex - 1].style.display = "block";  
+        setTimeout(showSlides, 3000); // Change image every 3 seconds
+    }
+
+    function plusSlides(n) {
+        slideIndex += n;
+        if (slideIndex > document.getElementsByClassName("mySlides").length) {slideIndex = 1}
+        if (slideIndex < 1) {slideIndex = document.getElementsByClassName("mySlides").length}
+        showSlidesManually();
+    }
+
+    function showSlidesManually() {
+        let i;
+        const slides = document.getElementsByClassName("mySlides");
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";  
+        }
+        slides[slideIndex - 1].style.display = "block";  
+    }
+
+    function smoothScroll(target) {
+        const element = document.querySelector(target);
+        element.scrollIntoView({ behavior: 'smooth' });
+    }
+</script>
+
+</body>
+</html>

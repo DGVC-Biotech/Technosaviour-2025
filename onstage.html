@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Onstage Events - TECHNOSAVIOUR 2025</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        /* CSS Reset (Normalize) */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            line-height: 1.5;
+            font-size: 16px;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to bottom right, #1e0038, #6a1b9a);
+            color: #ffffff;
+            padding: 20px;
+            position: relative;
+            min-height: 100vh;
+            overflow-x: hidden;
+            -webkit-overflow-scrolling: touch;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #ffc107;
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #ffca28;
+        }
+
+        /* 3D Background Effect */
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, rgba(0, 0, 0, 0.3) 100%);
+            z-index: -1;
+            animation: backgroundAnimation 10s infinite alternate;
+            pointer-events: none;
+            will-change: transform;
+        }
+
+        @keyframes backgroundAnimation {
+            0% {
+                transform: scale(1);
+            }
+            100% {
+                transform: scale(1.05);
+            }
+        }
+
+        header {
+            text-align: center;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+            transition: background 0.3s;
+
+        }
+
+        header:hover {
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        h1 {
+            font-size: 3em;
+            color: #ffc107;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+            letter-spacing: 1px;
+        }
+
+        h2 {
+            font-size: 1.5em;
+            margin: 20px 0;
+            color: #ffc107;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+            text-align: center;
+        }
+
+        .info-icon {
+            color: #ffc107;
+            font-size: 1.5em;
+            margin-left: 5px;
+            vertical-align: middle;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-bottom: 40px;
+            width: 100%;
+        }
+
+        .event-container {
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            gap: 20px;
+            width: 80%;
+            max-width: 1000px;
+            margin-bottom: 20px;
+            padding: 0;
+        }
+
+        .event-box {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 20px;
+            text-align: left;
+            position: relative;
+            transition: transform 0.3s, box-shadow 0.3s;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            word-wrap: break-word;
+        }
+
+        .event-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.7);
+        }
+
+        .event-box h3 {
+            margin: 10px 0;
+            color: #ffc107;
+            font-size: 1.5em;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        .touch-icon {
+            cursor: pointer;
+            font-size: 1.2em;
+            color: #ffc107;
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            transition: transform 0.3s;
+            will-change: transform;
+        }
+
+        .touch-icon:hover {
+            transform: scale(1.2) rotate(180deg);
+        }
+
+        .rules {
+            display: none;
+            margin-top: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+            text-align: left;
+            opacity: 0;
+            transform: translateY(-10px);  /* Start slightly above */
+            transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
+            will-change: transform, opacity;
+        }
+
+        .rules.show {
+            display: block;
+            opacity: 1;
+            transform: translateY(0); /* Slide into view */
+        }
+
+        .rules ul {
+            list-style-type: disc;
+            padding-left: 20px;
+            margin-bottom: 10px;
+        }
+
+        .rules li {
+            margin-bottom: 5px;
+        }
+
+        .submit-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8px 16px;
+            background: rgba(255, 193, 7, 0.2);
+            color: #ffc107;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 0.9em;
+            border: 1px solid #ffc107;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .submit-button:hover {
+            background: #ffc107;
+            color: #333;
+        }
+
+        .submit-button i {
+            margin-right: 5px;
+            font-size: 1em;
+        }
+
+        /* Footer Styles */
+        footer {
+            text-align: center;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.1);
+            color: #eee;
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+            margin-top: 30px;
+            transition: background 0.3s;
+        }
+
+        footer:hover {
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .contact-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 15px;
+            padding: 12px 25px;
+            background: rgba(255, 255, 255, 0.1);
+            color: #ffc107;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s, color 0.3s, transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+            border: 1px solid #ffc107;
+        }
+
+        .contact-button:hover {
+            background: #ffc107;
+            color: #333;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 12px rgba(0, 0, 0, 0.5);
+        }
+
+        .contact-button i {
+            margin-right: 8px;
+            font-size: 1.2em;
+        }
+
+        .footer-text {
+            margin-top: 15px;
+            font-size: 0.9em;
+            color: #ddd;
+        }
+
+        /* Media query for smaller screens (phones) */
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+
+            header {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            h2 {
+                font-size: 1.3em;
+            }
+
+            .event-container {
+                width: 95%;
+            }
+
+            .event-box {
+                padding: 15px;
+            }
+
+            .event-box h3 {
+                font-size: 1.3em;
+            }
+
+            .touch-icon {
+                font-size: 1em;
+                top: 15px;
+                right: 15px;
+            }
+
+            .rules {
+                padding: 8px;
+            }
+
+            footer {
+                padding: 20px;
+                border-radius: 10px;
+                margin-top: 20px;
+            }
+
+            .contact-button {
+                padding: 10px 20px;
+                font-size: 0.9em;
+            }
+        }
+
+        /* Media query for tablets */
+        @media (min-width: 601px) and (max-width: 900px) {
+            .event-container {
+                width: 90%;
+            }
+
+            .event-box {
+                padding: 18px;
+            }
+
+            .event-box h3 {
+                font-size: 1.4em;
+            }
+
+            .touch-icon {
+                font-size: 1.1em;
+                top: 18px;
+                right: 18px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="background"></div>
+
+<header>
+    <h1>Onstage Events - TECHNOSAVIOUR 2025</h1>
+    <h2>Click the <i class="fas fa-info-circle info-icon"></i> icon to view the rules for each event.</h2>
+</header>
+
+<main>
+    <div class="event-container">
+        <div class="event-box">
+            <h3>Ideathon</h3>
+            <i class="fas fa-info-circle touch-icon" onclick="toggleRules('rules1', this)"></i>
+            <div id="rules1" class="rules">
+                <ul>
+                    <li>3 participants per team, 1 team per department/institution.</li>
+                    <li>Each team will have a maximum of 10 slides to present their idea, along with 5 minutes for presentation and 2 minutes for a Q&A session.</li>
+                    <li>Presentations should focus on the idea’s impact, sustainability, and scalability.</li>
+                    <li>Use of offensive or inappropriate content will result in disqualification.</li>
+                    <li>Time limits and the 10-slide maximum must be strictly adhered to; Strictly adhere to the time limit & no. of slides.</li>
+                    <li>Judges’ decisions regarding originality, feasibility, and presentation quality will be final.</li>
+                    <li>The team with the most innovative and well-presented idea and meet the sustainable development goals will be declared the winner.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="event-box">
+            <h3>Connections</h3>
+            <i class="fas fa-info-circle touch-icon" onclick="toggleRules('rules2', this)"></i>
+            <div id="rules2" class="rules">
+                <ul>
+                    <li>3 participants per team, 1 team per department/institution.</li>
+                    <li>The game will consist of multiple rounds where the participants will be given sets of related words or concepts.</li>
+                    <li>Teams must identify the connection between the given words or concepts and give the final answer within the time limit.</li>
+                    <li>Teams must discuss and give their final answer within the time limit.</li>
+                    <li>No external help or devices are allowed during the competition.</li>
+                    <li>Each correct answer earns points, and incorrect answers will not be penalized.</li>
+                    <li>Judges’ decisions on connections will be final and binding.</li>
+                    <li>The team with the highest total score across all rounds will be declared the winner.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="event-box">
+            <h3>Heads Up</h3>
+            <i class="fas fa-info-circle touch-icon" onclick="toggleRules('rules3', this)"></i>
+            <div id="rules3" class="rules">
+                <ul>
+                    <li>2 participants per team, 1 team per department/institution.</li>
+                    <li>One player will guess the word displayed on the board, while the other gives indirect verbal clues to help identify the word.</li>
+                    <li>Use of sentences as clues or gestures will lead to disqualification.</li>
+                    <li>Players can say "PASS" to skip a word.</li>
+                    <li>The team that guesses the most words correctly wins.</li>
+                    <li>Judge's decision will be final.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="event-box">
+            <h3>Debate</h3>
+            <i class="fas fa-info-circle touch-icon" onclick="toggleRules('rules4', this)"></i>
+            <div id="rules4" class="rules">
+                <ul>
+                    <li>3 participants per team, 1 team per department/institution.</li>
+                    <li>Topics will be provided 30 minutes prior to the start of the debate.</li>
+                    <li>Each team will have 5 minutes for preparation and 10 minutes to present their arguments.</li>
+                    <li>Teams must present arguments both for and against the given topic.</li>
+                    <li>Offensive language or personal attacks will result in disqualification.</li>
+                    <li>Teams must bring their own materials (e.g., notebooks, pens) for note-taking.</li>
+                    <li>Participants are encouraged to present data and facts to support their arguments.</li>
+                    <li>Interruptions during the opponent's presentation are not allowed; time will be provided for rebuttals.</li>
+                    <li>Time limits must be strictly adhered to; exceeding the limit will result in point deductions.</li>
+                    <li>Decisions made by the judging panel are final and binding.</li>
+                    <li>The team with the most points based on content, clarity, delivery, and rebuttal wins.</li>
+                </ul>
+            </div>
+        </div>
+          <div class="event-box">
+            <h3>Surprise Event</h3>
+            <i class="fas fa-info-circle touch-icon" onclick="toggleRules('rules5', this)"></i>
+            <div id="rules5" class="rules">
+                <p>It's a surprise!</p>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer>
+    <p><a href="index.html#contact" class="contact-button"><i class="fas fa-address-book"></i> Contact Us</a></p>
+    <p class="footer-text">© 2025 TECHNOSAVIOUR. All rights reserved.</p>
+    <p class="footer-text">Designed by KB</p>
+</footer>
+
+<script>
+    function toggleRules(rulesId, icon) {
+        const rulesElement = document.getElementById(rulesId);
+        const isCurrentlyVisible = rulesElement.classList.contains('show');
+
+        if (isCurrentlyVisible) {
+            rulesElement.classList.remove('show');
+        } else {
+            rulesElement.classList.add('show');
+        }
+
+        // Animate the icon rotation
+        if (icon) {
+            icon.style.transition = "transform 0.2s ease-in-out"; // Faster transition
+            icon.style.transform = isCurrentlyVisible ? "rotate(0deg)" : "rotate(180deg)";
+
+            // Remove the transition after the animation to prevent interference
+            setTimeout(() => {
+                icon.style.transition = "";
+                 icon.style.transform = isCurrentlyVisible ? "" : "";
+            }, 200);
+        }
+    }
+</script>
+
+</body>
+</html>
