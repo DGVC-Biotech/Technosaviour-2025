@@ -33,7 +33,7 @@
 
         /* Custom Scrollbar */
         ::-webkit-scrollbar {
-            width: 12px;
+            width: 8px; /* Adjusted scrollbar width for mobile */
         }
 
         ::-webkit-scrollbar-track {
@@ -52,11 +52,11 @@
 
         header {
             text-align: center;
-            padding: 30px;
+            padding: 20px; /* Adjusted padding for mobile */
             background: rgba(255, 255, 255, 0.1);
             border-radius: 15px;
-            margin-bottom: 30px;
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+            margin-bottom: 20px; /* Adjusted margin for mobile */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* Reduced shadow for mobile */
             transition: background 0.3s;
         }
 
@@ -65,81 +65,86 @@
         }
 
         h1 {
-            font-size: 3em;
+            font-size: 2.2em; /* Adjusted font size for mobile */
             color: #ffc107;
-            margin-bottom: 15px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+            margin-bottom: 10px; /* Adjusted margin for mobile */
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6); /* Reduced shadow for mobile */
             letter-spacing: 1px;
         }
 
         h2 {
-            font-size: 2.2em;
-            margin: 30px 0;
+            font-size: 1.8em; /* Adjusted font size for mobile */
+            margin: 25px 0; /* Adjusted margin for mobile */
             color: #ffc107;
             text-align: center;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Reduced shadow for mobile */
+        }
+
+        h3 {
+             font-size: 1.2em; /* Adjusted font size for mobile */
         }
 
         p {
-            margin-bottom: 20px;
+            margin-bottom: 15px; /* Adjusted margin for mobile */
             color: #ddd;
-            line-height: 1.7;
+            line-height: 1.6; /* Adjusted line height for mobile */
         }
 
         .rules-list {
             list-style-type: none;
             padding: 0;
-            margin: 30px auto;
+            margin: 20px auto; /* Adjusted margin for mobile */
             text-align: left;
-            max-width: 700px;
+            max-width: 95%; /* Increased max-width to utilize more screen space */
         }
 
         .rules-list li {
             background: rgba(255, 255, 255, 0.1);
-            margin: 15px 0;
-            padding: 20px;
+            margin: 10px 0; /* Adjusted margin for mobile */
+            padding: 15px; /* Adjusted padding for mobile */
             border-radius: 12px;
-            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.4); /* Reduced shadow for mobile */
             display: flex;
             align-items: center;
             transition: transform 0.3s, box-shadow 0.3s;
+            font-size: 0.9em; /* Adjusted font size for mobile */
         }
 
         .rules-list li:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+            transform: translateY(-2px); /* Reduced transform for mobile */
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5); /* Reduced shadow for mobile */
         }
 
         .rules-list li i {
-            margin-right: 15px;
+            margin-right: 10px; /* Adjusted margin for mobile */
             color: #ffc107;
-            font-size: 1.5em;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+            font-size: 1.2em; /* Adjusted font size for mobile */
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Reduced shadow for mobile */
         }
 
         main {
             flex: 1; /* Allows main to grow and push footer down */
-            padding-bottom: 40px; /* Add padding to the bottom of main */
+            padding-bottom: 30px; /* Adjusted padding for mobile */
         }
 
         .event-options {
-            margin: 40px 0;
+            margin: 30px 0; /* Adjusted margin for mobile */
             text-align: center;
         }
 
         .event-button {
             position: relative;
             background: rgba(255, 255, 255, 0.1);
-            margin: 15px;
-            padding: 18px 30px;
-            border-radius: 10px;
-            box-shadow: 0 5px 12px rgba(0, 0, 0, 0.5);
+            margin: 10px; /* Adjusted margin for mobile */
+            padding: 14px 22px; /* Adjusted padding for mobile */
+            border-radius: 8px; /* Adjusted border-radius for mobile */
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.5); /* Reduced shadow for mobile */
             display: inline-block;
             cursor: pointer;
             transition: transform 0.3s, box-shadow 0.3s, color 0.3s;
             color: #ffc107;
             text-decoration: none;
-            font-size: 1.3em;
+            font-size: 1em; /* Adjusted font size for mobile */
             overflow: hidden;
         }
 
@@ -156,8 +161,8 @@
         }
 
         .event-button:hover {
-            transform: scale(1.08);
-            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.6);
+            transform: scale(1.05); /* Reduced transform for mobile */
+            box-shadow: 0 5px 12px rgba(0, 0, 0, 0.6); /* Reduced shadow for mobile */
             color: #fff;
         }
 
@@ -167,8 +172,8 @@
 
         .social-links a {
             color: #ffc107;
-            margin: 0 10px;
-            font-size: 1.2em;
+            margin: 0 8px; /* Adjusted margin for mobile */
+            font-size: 1em; /* Adjusted font size for mobile */
             transition: color 0.3s ease, transform 0.3s ease;
         }
 
@@ -195,20 +200,20 @@
                 transform: scale(1);
             }
             100% {
-                transform: scale(1.05);
+                transform: scale(1.03); /* Reduced scale for mobile */
             }
         }
 
          /* Footer Styles */
         footer {
             text-align: center;
-            padding: 30px;
+            padding: 20px; /* Adjusted padding for mobile */
             background: rgba(255, 255, 255, 0.1);
             color: #eee;
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(8px); /* Reduced blur for performance */
             border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-            margin-top: 30px;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.5); /* Reduced shadow for mobile */
+            margin-top: 20px; /* Adjusted margin for mobile */
             transition: background 0.3s;
         }
 
@@ -220,34 +225,103 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            margin-top: 15px;
-            padding: 12px 25px;
+            margin-top: 10px; /* Adjusted margin for mobile */
+            padding: 10px 20px; /* Adjusted padding for mobile */
             background: rgba(255, 255, 255, 0.1);
             color: #ffc107;
             border-radius: 8px;
             text-decoration: none;
             font-weight: 600;
             transition: background-color 0.3s, color 0.3s, transform 0.3s, box-shadow 0.3s;
-            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Reduced shadow for mobile */
             border: 1px solid #ffc107;
+            font-size: 0.9em; /* Adjusted font size for mobile */
         }
 
         .contact-button:hover {
             background: #ffc107;
             color: #333;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 12px rgba(0, 0, 0, 0.5);
+            transform: translateY(-1px); /* Reduced transform for mobile */
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.5); /* Reduced shadow for mobile */
         }
 
         .contact-button i {
-            margin-right: 8px;
-            font-size: 1.2em;
+            margin-right: 6px; /* Adjusted margin for mobile */
+            font-size: 1em; /* Adjusted font size for mobile */
         }
 
         .footer-text {
-            margin-top: 15px;
-            font-size: 0.9em;
+            margin-top: 10px; /* Adjusted margin for mobile */
+            font-size: 0.8em; /* Adjusted font size for mobile */
             color: #ddd;
+        }
+
+        /* Media Query for Tablets and Larger */
+        @media (min-width: 768px) {
+            h1 {
+                font-size: 2.8em;
+            }
+
+            h2 {
+                font-size: 2em;
+            }
+
+             h3 {
+                 font-size: 1.4em;
+             }
+
+            .rules-list {
+                max-width: 80%;
+            }
+
+            .rules-list li {
+                font-size: 1em;
+            }
+
+            .event-button {
+                font-size: 1.1em;
+                padding: 16px 25px;
+            }
+
+            .contact-button {
+                font-size: 1em;
+            }
+        }
+
+        /* Media Query for Desktops and Larger */
+        @media (min-width: 1024px) {
+            h1 {
+                font-size: 3em;
+            }
+
+            h2 {
+                font-size: 2.2em;
+            }
+
+            h3 {
+                 font-size: 1.5em;
+             }
+
+            .rules-list {
+                max-width: 700px;
+            }
+
+            .rules-list li {
+                font-size: 1.1em;
+            }
+
+            .event-button {
+                font-size: 1.2em;
+            }
+
+            .contact-button {
+                font-size: 1.1em;
+            }
+
+             header {
+                padding: 30px;
+            }
+
         }
     </style>
 </head>
