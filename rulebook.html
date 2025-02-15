@@ -326,6 +326,14 @@
             margin-top: 3px;  /* Add spacing between the event and the venue */
             font-size: 0.95em; /* slightly adjust the size */
         }
+        /* Style for Venue::before */
+        .schedule-card .venue::before {
+            content: "Venue: ";  /* Add "Venue: " before the venue name */
+            font-style: normal; /* Revert to normal font style if needed */
+            font-weight: normal; /* Revert to normal font-weight if needed */
+            color: #ddd;      /* Set the color of the "Venue:" text */
+            text-shadow: none;   /* remove text shadow */
+        }
 
         /* Style for Lunch Break and Valedictory Session and Inauguration */
         .schedule-special {
@@ -422,23 +430,24 @@
         }
         /* Header-Specific Styles for Mobile */
         @media (max-width: 600px) {
+            header {
+                padding: 25px; /* Reduced padding */
+                margin-bottom: 25px;
+            }
+
             header h1 {
-                font-size: 2.5em; /* Smaller title for very small screens */
+                font-size: 2.3em; /* Smaller title for very small screens */
+                word-break: break-word; /* Allow long titles to wrap */
             }
 
             header h3 {
                 font-size: 1.1em; /* Smaller subtitle */
             }
-
-            header {
-                padding: 25px; /* Reduce padding */
-                margin-bottom: 25px;
-            }
         }
 
         @media (max-width: 375px) { /* Even smaller screens */
             header h1 {
-                font-size: 2em;
+                font-size: 1.9em;
             }
 
             header h3 {
@@ -464,8 +473,8 @@
         <ul class="rules-list">
             <li><i class="fas fa-id-card"></i> The participants are requested to bring their college ID card/bonafide.</li>
             <li><i class="fas fa-link"></i> Participants need to fill the Registration link to confirm their participation before 26.02.2025 and to join whatsapp group for further updates.</li>
-            <li><i class="fas fa-money-bill-wave"></i> Registration fee for each participant is Rs. 100/- have to be paid. Payment details is given in the home screen below the registration form.</li>
-            <li><i class="fas fa-calendar-alt"></i> Each student can register for maximum two events after ensuring that timings doesn't overlap.</li>
+            <li><i class="fas fa-money-bill-wave"></i> Registration fee for each participant is Rs. 100/- have to be paid via Gpay number: **, Name of the payee: **</li>
+            <li><i class="fas fa-calendar-alt"></i> Participants need to fill the Registration link to confirm their participation before 26.02.2025 and to join whatsapp group for further updates.</li>
             <li><i class="fas fa-users"></i> For group events each student should register individually and one from group can make a single payment.</li>
             <li><i class="fas fa-clock"></i> The participants are requested to be present 15 minutes prior to the inaugural function.</li>
             <li><i class="fas fa-check-circle"></i> Confirmation of prior registrations and spot registration for some events will take place between 08.00 am to 09.15 am on 27.12.2023. No further registrations will be encouraged.</li>
