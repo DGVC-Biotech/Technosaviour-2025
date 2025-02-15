@@ -19,21 +19,21 @@
         }
 
         body {
-            line-height: 1.5;
-            font-size: 16px;
+            line-height: 1.6;
+            font-size: 17px;
             font-family: 'Poppins', sans-serif;
             background: linear-gradient(to bottom right, #1e0038, #6a1b9a);
             color: #ffffff;
             padding: 20px;
             position: relative;
-            min-height: 100vh; /* Ensure at least full viewport height */
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
         }
 
         /* Custom Scrollbar */
         ::-webkit-scrollbar {
-            width: 8px; /* Adjusted scrollbar width for mobile */
+            width: 12px;
         }
 
         ::-webkit-scrollbar-track {
@@ -52,11 +52,11 @@
 
         header {
             text-align: center;
-            padding: 20px; /* Adjusted padding for mobile */
+            padding: 40px;
             background: rgba(255, 255, 255, 0.1);
-            border-radius: 15px;
-            margin-bottom: 20px; /* Adjusted margin for mobile */
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* Reduced shadow for mobile */
+            border-radius: 20px;
+            margin-bottom: 40px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
             transition: background 0.3s;
         }
 
@@ -65,86 +65,81 @@
         }
 
         h1 {
-            font-size: 2.2em; /* Adjusted font size for mobile */
+            font-size: 3.5em;
             color: #ffc107;
-            margin-bottom: 10px; /* Adjusted margin for mobile */
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6); /* Reduced shadow for mobile */
-            letter-spacing: 1px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            letter-spacing: 1.5px;
         }
 
         h2 {
-            font-size: 1.8em; /* Adjusted font size for mobile */
-            margin: 25px 0; /* Adjusted margin for mobile */
+            font-size: 2.5em;
+            margin: 40px 0;
             color: #ffc107;
             text-align: center;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Reduced shadow for mobile */
-        }
-
-        h3 {
-             font-size: 1.2em; /* Adjusted font size for mobile */
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
         }
 
         p {
-            margin-bottom: 15px; /* Adjusted margin for mobile */
+            margin-bottom: 25px;
             color: #ddd;
-            line-height: 1.6; /* Adjusted line height for mobile */
+            line-height: 1.8;
         }
 
         .rules-list {
             list-style-type: none;
             padding: 0;
-            margin: 20px auto; /* Adjusted margin for mobile */
+            margin: 40px auto;
             text-align: left;
-            max-width: 95%; /* Increased max-width to utilize more screen space */
+            max-width: 800px;
         }
 
         .rules-list li {
             background: rgba(255, 255, 255, 0.1);
-            margin: 10px 0; /* Adjusted margin for mobile */
-            padding: 15px; /* Adjusted padding for mobile */
-            border-radius: 12px;
-            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.4); /* Reduced shadow for mobile */
+            margin: 20px 0;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
             display: flex;
             align-items: center;
             transition: transform 0.3s, box-shadow 0.3s;
-            font-size: 0.9em; /* Adjusted font size for mobile */
         }
 
         .rules-list li:hover {
-            transform: translateY(-2px); /* Reduced transform for mobile */
-            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5); /* Reduced shadow for mobile */
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
         }
 
         .rules-list li i {
-            margin-right: 10px; /* Adjusted margin for mobile */
+            margin-right: 20px;
             color: #ffc107;
-            font-size: 1.2em; /* Adjusted font size for mobile */
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Reduced shadow for mobile */
+            font-size: 1.7em;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
         }
 
         main {
-            flex: 1; /* Allows main to grow and push footer down */
-            padding-bottom: 30px; /* Adjusted padding for mobile */
+            flex: 1;
+            padding-bottom: 50px;
         }
 
         .event-options {
-            margin: 30px 0; /* Adjusted margin for mobile */
+            margin: 50px 0;
             text-align: center;
         }
 
         .event-button {
             position: relative;
             background: rgba(255, 255, 255, 0.1);
-            margin: 10px; /* Adjusted margin for mobile */
-            padding: 14px 22px; /* Adjusted padding for mobile */
-            border-radius: 8px; /* Adjusted border-radius for mobile */
-            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.5); /* Reduced shadow for mobile */
+            margin: 20px;
+            padding: 20px 35px;
+            border-radius: 12px;
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.5);
             display: inline-block;
             cursor: pointer;
             transition: transform 0.3s, box-shadow 0.3s, color 0.3s;
             color: #ffc107;
             text-decoration: none;
-            font-size: 1em; /* Adjusted font size for mobile */
+            font-size: 1.4em;
             overflow: hidden;
         }
 
@@ -161,8 +156,8 @@
         }
 
         .event-button:hover {
-            transform: scale(1.05); /* Reduced transform for mobile */
-            box-shadow: 0 5px 12px rgba(0, 0, 0, 0.6); /* Reduced shadow for mobile */
+            transform: scale(1.1);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
             color: #fff;
         }
 
@@ -172,14 +167,14 @@
 
         .social-links a {
             color: #ffc107;
-            margin: 0 8px; /* Adjusted margin for mobile */
-            font-size: 1em; /* Adjusted font size for mobile */
+            margin: 0 12px;
+            font-size: 1.3em;
             transition: color 0.3s ease, transform 0.3s ease;
         }
 
         .social-links a:hover {
             color: #fff;
-            transform: scale(1.1);
+            transform: scale(1.2);
         }
 
         /* 3D Background Effect */
@@ -192,7 +187,7 @@
             background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, rgba(0, 0, 0, 0.3) 100%);
             z-index: -1;
             animation: backgroundAnimation 10s infinite alternate;
-            pointer-events: none; /* Make it non-interactive */
+            pointer-events: none;
         }
 
         @keyframes backgroundAnimation {
@@ -200,20 +195,20 @@
                 transform: scale(1);
             }
             100% {
-                transform: scale(1.03); /* Reduced scale for mobile */
+                transform: scale(1.05);
             }
         }
 
          /* Footer Styles */
         footer {
             text-align: center;
-            padding: 20px; /* Adjusted padding for mobile */
+            padding: 40px;
             background: rgba(255, 255, 255, 0.1);
             color: #eee;
-            backdrop-filter: blur(8px); /* Reduced blur for performance */
-            border-radius: 15px;
-            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.5); /* Reduced shadow for mobile */
-            margin-top: 20px; /* Adjusted margin for mobile */
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+            margin-top: 40px;
             transition: background 0.3s;
         }
 
@@ -225,104 +220,172 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            margin-top: 10px; /* Adjusted margin for mobile */
-            padding: 10px 20px; /* Adjusted padding for mobile */
+            margin-top: 20px;
+            padding: 15px 30px;
             background: rgba(255, 255, 255, 0.1);
             color: #ffc107;
-            border-radius: 8px;
+            border-radius: 10px;
             text-decoration: none;
             font-weight: 600;
             transition: background-color 0.3s, color 0.3s, transform 0.3s, box-shadow 0.3s;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Reduced shadow for mobile */
+            box-shadow: 0 5px 12px rgba(0, 0, 0, 0.4);
             border: 1px solid #ffc107;
-            font-size: 0.9em; /* Adjusted font size for mobile */
+            font-size: 1.1em;
         }
 
         .contact-button:hover {
             background: #ffc107;
             color: #333;
-            transform: translateY(-1px); /* Reduced transform for mobile */
-            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.5); /* Reduced shadow for mobile */
+            transform: translateY(-3px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
         }
 
         .contact-button i {
-            margin-right: 6px; /* Adjusted margin for mobile */
-            font-size: 1em; /* Adjusted font size for mobile */
+            margin-right: 10px;
+            font-size: 1.3em;
         }
 
         .footer-text {
-            margin-top: 10px; /* Adjusted margin for mobile */
-            font-size: 0.8em; /* Adjusted font size for mobile */
+            margin-top: 20px;
+            font-size: 1em;
             color: #ddd;
         }
 
-        /* Media Query for Tablets and Larger */
-        @media (min-width: 768px) {
+        /* Event Schedule Styles - Card Layout */
+        .event-schedule {
+            margin: 50px auto;
+            max-width: 900px;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+            text-align: center;
+        }
+
+        .event-schedule h3 {
+            font-size: 2em;
+            color: #ffc107;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
+        }
+
+        .schedule-cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px;
+        }
+
+        .schedule-card {
+            width: calc(50% - 25px);
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+            text-align: left;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+         .schedule-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
+        }
+
+        .schedule-card h4 {
+            font-size: 1.4em;
+            color: #ffc107;
+            margin-bottom: 15px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        .schedule-card .event-item {
+            margin-bottom: 8px;
+        }
+
+         .schedule-card .event-item i {
+            margin-right: 5px; /* Reduce space between the icon and the event text */
+            color: #ffc107;
+            font-size: 1.1em;
+             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        .schedule-card .venue {
+            /* Previous venue styles: */
+            font-style: italic;
+            display: block; /* Keep it on a new line */
+            /* Enhanced venue styles: */
+            color: #ffc107; /* Use the theme color */
+            font-weight: 600; /* Add some weight to the venue name */
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Add a text-shadow too */
+            margin-top: 3px;  /* Add spacing between the event and the venue */
+            font-size: 0.95em; /* slightly adjust the size */
+        }
+
+        /* Style for Lunch Break and Valedictory Session and Inauguration */
+        .schedule-special {
+            width: 100%;
+            text-align: center;
+            font-weight: bold;
+            color: #ffc107;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            margin-bottom: 30px;
+            font-size: 1.3em;
+             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
+        }
+
+        /* Media query for smaller screens */
+        @media (max-width: 768px) {  /* Adjusted breakpoint for common tablets */
             h1 {
                 font-size: 2.8em;
             }
-
             h2 {
                 font-size: 2em;
             }
-
-             h3 {
-                 font-size: 1.4em;
-             }
-
+            .event-options {
+                margin: 30px 0;
+            }
+             .event-button {
+                font-size: 1.2em;
+                margin: 10px;
+                padding: 15px 25px;
+            }
             .rules-list {
-                max-width: 80%;
+                margin: 30px auto;
+            }
+             .rules-list li {
+                padding: 18px;
             }
 
-            .rules-list li {
-                font-size: 1em;
+            .schedule-cards {
+                flex-direction: column;
+                align-items: center;
             }
-
-            .event-button {
-                font-size: 1.1em;
-                padding: 16px 25px;
-            }
-
-            .contact-button {
-                font-size: 1em;
+             .schedule-card {
+                width: 95%;
             }
         }
 
-        /* Media Query for Desktops and Larger */
-        @media (min-width: 1024px) {
+        @media (max-width: 480px) {  /* Adjusted breakpoint for smaller phones */
             h1 {
-                font-size: 3em;
-            }
-
-            h2 {
                 font-size: 2.2em;
             }
-
-            h3 {
-                 font-size: 1.5em;
-             }
-
-            .rules-list {
-                max-width: 700px;
+             h2 {
+                font-size: 1.8em;
             }
-
-            .rules-list li {
-                font-size: 1.1em;
-            }
-
             .event-button {
+                font-size: 1em;
+                padding: 12px 20px;
+            }
+            .rules-list li i {
+                font-size: 1.4em;
+            }
+             .schedule-card h4 {
                 font-size: 1.2em;
             }
-
-            .contact-button {
-                font-size: 1.1em;
-            }
-
-             header {
-                padding: 30px;
-            }
-
         }
+
     </style>
 </head>
 <body>
@@ -356,6 +419,53 @@
         <a class="event-button" href="onstage.html"><i class="fas fa-theater-masks"></i> Onstage Events</a>
         <a class="event-button" href="offstage.html"><i class="fas fa-clipboard-list"></i> Offstage Events</a>
         <a class="event-button" href="online.html"><i class="fas fa-laptop-code"></i> Online Events</a>
+    </section>
+
+    <section class="event-schedule">
+        <h3>Event Schedule</h3>
+        <p style="text-align: center; color: #ddd; font-style: italic;">(Tentative Schedule - Subject to Change)</p>
+
+        <div class="schedule-cards">
+
+            <div class="schedule-special"><i class="fas fa-bullhorn"></i> INAUGURATION CEREMONY (9:30 AM - 10:30 AM)<br><i class="fas fa-map-marker-alt"></i> Venue: Auditorium</div>
+
+            <div class="schedule-card">
+                <h4><i class="fas fa-clock"></i> 11.00 am - 11.50 am</h4>
+                <div class="event-item"><i class="fas fa-bullhorn"></i> Connections  <span class="venue">Auditorium</span></div>
+                <div class="event-item"><i class="fas fa-bullhorn"></i> Petri dish art  <span class="venue">1UG</span></div>
+                <div class="event-item"><i class="fas fa-bullhorn"></i> Spotters <span class="venue">PG Lab</span></div>
+            </div>
+
+            <div class="schedule-card">
+                <h4><i class="fas fa-clock"></i> 12.00pm - 12.40 pm</h4>
+                <div class="event-item"><i class="fas fa-bullhorn"></i> Heads up <span class="venue">Auditorium</span></div>
+                <div class="event-item"><i class="fas fa-bullhorn"></i> Face painting <span class="venue">2UG</span></div>
+            </div>
+
+            <div class="schedule-card">
+                <h4><i class="fas fa-clock"></i> 12.50 pm - 1.30 pm</h4>
+                <div class="event-item"><i class="fas fa-bullhorn"></i> Ideathon <span class="venue">Auditorium</span></div>
+                <div class="event-item"><i class="fas fa-bullhorn"></i> Quiz <span class="venue">3UG</span></div>
+                <div class="event-item"><i class="fas fa-bullhorn"></i> Wealth out of waste <span class="venue">UG Lab</span></div>
+            </div>
+
+             <div class="schedule-special"><i class="fas fa-utensils"></i> LUNCH BREAK (1:30 PM - 2:15 PM)</div>
+
+            <div class="schedule-card">
+                <h4><i class="fas fa-clock"></i> 2.15 pm - 3.15 pm</h4>
+                 <div class="event-item"><i class="fas fa-bullhorn"></i> Debate <span class="venue">Auditorium</span></div>
+                <div class="event-item"><i class="fas fa-bullhorn"></i> Science auction <span class="venue">1PG</span></div>
+            </div>
+
+             <div class="schedule-card">
+                <h4><i class="fas fa-clock"></i> 3.30pm - 4.20pm</h4>
+                 <div class="event-item"><i class="fas fa-bullhorn"></i> Surprise event <span class="venue">Auditorium</span></div>
+                <div class="event-item"><i class="fas fa-bullhorn"></i> Problem solving <span class="venue">3UG</span></div>
+            </div>
+
+            <div class="schedule-special"><i class="fas fa-trophy"></i> VALEDICTORY SESSION (4:20 PM Onwards)</div>
+
+        </div>
     </section>
 </main>
 
