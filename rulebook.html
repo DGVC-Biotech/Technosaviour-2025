@@ -551,6 +551,19 @@
             header {
                padding: 40px; /* Reset header padding */
             }
+
+            /* Specifically target rules-list and schedule-cards */
+            ul.rules-list {
+                max-width: 800px; /* Or whatever the original max-width was */
+                margin: 40px auto; /* Or original margins */
+            }
+
+            .schedule-cards {
+                display: flex;         /* Restore the flex layout */
+                flex-wrap: wrap;       /* Allow wrapping */
+                justify-content: center; /* Center items */
+                gap: 25px;              /* Restore the gap */
+            }
         }
 
     </style>
