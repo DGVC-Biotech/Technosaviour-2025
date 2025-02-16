@@ -65,11 +65,13 @@
         }
 
         h1 {
-            font-size: 3.5em;
+            font-size: 3em; /* Reduced initial font size */
             color: #ffc107;
             margin-bottom: 20px;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
             letter-spacing: 1.5px;
+            /*word-break: keep-all;  Removed */
+           /* white-space: nowrap;  Removed */
         }
 
         h3 { /* Styling the header sub-text */
@@ -356,7 +358,7 @@
             }
 
             h1 {
-                font-size: 3em; /* Slightly smaller title for tablets */
+                font-size: 2.5em; /* Slightly smaller title for tablets */
             }
 
             h3 {
@@ -377,7 +379,7 @@
             }
 
             h1 {
-                font-size: 2.8em;
+                font-size: 2.2em;
                 margin-bottom: 15px;
             }
 
@@ -414,6 +416,27 @@
              .schedule-card {
                 width: 95%;
             }
+
+            .schedule-special {  /* Making special element more responsive */
+                font-size: 1.2em;
+                padding: 15px;
+            }
+        }
+
+         @media (max-width: 600px) {
+            header {
+                padding: 25px; /* Reduced padding */
+                margin-bottom: 25px;
+            }
+
+            h1 {
+                font-size: 2em; /* Smaller title for very small screens */
+                /*word-break: break-word; Allow long titles to wrap */
+            }
+
+            h3 {
+                font-size: 1.1em; /* Smaller subtitle */
+            }
         }
 
         @media (max-width: 480px) {
@@ -423,7 +446,7 @@
             }
 
             h1 {
-                font-size: 2.2em;
+                font-size: 1.8em; /* Even smaller on very small screens */
                 margin-bottom: 10px;
             }
              h3 {
@@ -459,29 +482,32 @@
         }
 
         /* Header-Specific Styles for Mobile */
-        @media (max-width: 600px) {
-            header {
-                padding: 25px; /* Reduced padding */
-                margin-bottom: 25px;
-            }
-
-            header h1 {
-                font-size: 2.3em; /* Smaller title for very small screens */
-                word-break: break-word; /* Allow long titles to wrap */
-            }
-
-            header h3 {
-                font-size: 1.1em; /* Smaller subtitle */
-            }
-        }
-
         @media (max-width: 375px) { /* Even smaller screens */
             header h1 {
-                font-size: 1.9em;
+                font-size: 1.6em; /* Adjust as needed */
             }
 
             header h3 {
                 font-size: 0.9em;
+            }
+
+             .event-button {  /* Make smaller button in event-options */
+                font-size: 0.9em;
+                padding: 10px 15px;
+            }
+
+             .rules-list li { /* Smaller padding for rules list */
+                padding: 15px;
+            }
+
+            .rules-list li i { /* Smaller icon for rules list */
+                font-size: 1.2em;
+                margin-right: 10px;
+            }
+
+           .schedule-special { /* Even smaller on very small devices */
+                font-size: 1em;
+                padding: 10px;
             }
         }
 
@@ -496,6 +522,16 @@
             h1 {
                 font-size: 2.5em; /* Increase title font size */
             }
+        }
+
+         /* Touch target adjustments - applies to all links and buttons */
+        a, .event-button, .contact-button {
+            min-height: 44px;   /* Ensure minimum height for touch */
+            min-width: 44px;   /* Ensure minimum width for touch */
+            display: inline-flex; /* Important for vertical alignment */
+            align-items: center; /* Center text vertically */
+            justify-content: center; /* Center text horizontally */
+            padding: 8px 12px;   /* Add a bit of padding around the text */
         }
 
 
