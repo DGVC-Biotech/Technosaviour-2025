@@ -534,6 +534,24 @@
             padding: 8px 12px;   /* Add a bit of padding around the text */
         }
 
+        /* Target Desktop View on Mobile */
+        @media (min-width: 1200px) { /* Or a larger value if needed */
+            h1 {
+                font-size: 3.5em; /* Reset to original size */
+            }
+
+            .schedule-card {
+                width: calc(50% - 25px); /* Restore two-card layout */
+            }
+
+            .event-button {
+                font-size: 1.4em; /* Restore button size */
+            }
+
+            header {
+               padding: 40px; /* Reset header padding */
+            }
+        }
 
     </style>
 </head>
