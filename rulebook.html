@@ -108,9 +108,8 @@
             padding: 25px;
             border-radius: 15px;
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
-            display: flex;
-            align-items: center;
-            transition: transform 0.3s, box-shadow 0.3s;
+            /* display: flex;   Removed */
+             text-align: center;  /* added */
         }
 
         .rules-list li:hover {
@@ -119,10 +118,17 @@
         }
 
         .rules-list li i {
-            margin-right: 20px;
+            /*margin-right: 20px;  Removed */
             color: #ffc107;
             font-size: 1.7em;
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
+             display: block;  /* Modified */
+             margin-bottom: 10px;
+             text-align: center; /* Centers the icon */
+        }
+         .rules-list li p {
+            margin-bottom: 0; /* Remove bottom margin from paragraph */
+            text-align: center; /* Centers the text */
         }
 
         main {
@@ -140,7 +146,7 @@
             background: rgba(255, 255, 255, 0.1);
             /*margin: 20px;  Modified*/
             margin: 10px 15px;
-            padding: 20px 35px;
+            padding: 22px 38px; /* Increased padding */
             border-radius: 12px;
             box-shadow: 0 6px 14px rgba(0, 0, 0, 0.5);
             display: inline-block;
@@ -148,7 +154,7 @@
             transition: transform 0.3s, box-shadow 0.3s, color 0.3s;
             color: #ffc107;
             text-decoration: none;
-            font-size: 1.4em;
+            font-size: 1.5em; /* Increased font size */
             overflow: hidden;
         }
 
@@ -567,15 +573,24 @@
     <section>
         <h2>General Instructions</h2>
         <ul class="rules-list">
-            <li><i class="fas fa-id-card"></i> The participants are requested to bring their college ID card/bonafide.</li>
-            <li><i class="fas fa-link"></i> Participants need to fill the Registration link to confirm their participation before 26.02.2025 and to join whatsapp group for further updates.</li>
-            <li><i class="fas fa-money-bill-wave"></i> Registration fee for each participant is Rs. 100/- have to be paid via Gpay number: **, Name of the payee: **</li>
-            <li><i class="fas fa-calendar-alt"></i> Participants need to fill the Registration link to confirm their participation before 26.02.2025 and to join whatsapp group for further updates.</li>
-            <li><i class="fas fa-users"></i> For group events each student should register individually and one from group can make a single payment.</li>
-            <li><i class="fas fa-clock"></i> The participants are requested to be present 15 minutes prior to the inaugural function.</li>
-            <li><i class="fas fa-check-circle"></i> Confirmation of prior registrations and spot registration for some events will take place between 08.00 am to 09.15 am on 27.12.2023. No further registrations will be encouraged.</li>
-            <li><i class="fas fa-map-marker-alt"></i> The participants must reach their respective event venues on time and updates regarding venues will be posted via whatsapp group.</li>
-            <li><i class="fas fa-coffee"></i> Refreshments will be provided.</li>
+            <li><i class="fas fa-id-card"></i>
+            <p>The participants are requested to bring their college ID card/bonafide.</p></li>
+            <li><i class="fas fa-link"></i>
+            <p>Participants need to fill the Registration link to confirm their participation before 26.02.2025 and to join whatsapp group for further updates.</p></li>
+            <li><i class="fas fa-money-bill-wave"></i>
+            <p>Registration fee for each participant is Rs. 100/- have to be paid via Gpay number: **, Name of the payee: **</p></li>
+            <li><i class="fas fa-calendar-alt"></i>
+            <p>Participants need to fill the Registration link to confirm their participation before 26.02.2025 and to join whatsapp group for further updates.</p></li>
+            <li><i class="fas fa-users"></i>
+            <p>For group events each student should register individually and one from group can make a single payment.</p></li>
+            <li><i class="fas fa-clock"></i>
+            <p>The participants are requested to be present 15 minutes prior to the inaugural function.</p></li>
+            <li><i class="fas fa-check-circle"></i>
+            <p>Confirmation of prior registrations and spot registration for some events will take place between 08.00 am to 09.15 am on 27.12.2025. No further registrations will be encouraged.</p></li>
+            <li><i class="fas fa-map-marker-alt"></i>
+            <p>The participants must reach their respective event venues on time. Details regarding Time and Venue is given below.</p></li>
+            <li><i class="fas fa-coffee"></i>
+            <p>Refreshments will be provided.</p></li>
         </ul>
     </section>
 
