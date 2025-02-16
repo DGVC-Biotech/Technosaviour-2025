@@ -138,7 +138,8 @@
         .event-button {
             position: relative;
             background: rgba(255, 255, 255, 0.1);
-            margin: 20px;
+            /*margin: 20px;  Modified*/
+            margin: 10px 15px;
             padding: 20px 35px;
             border-radius: 12px;
             box-shadow: 0 6px 14px rgba(0, 0, 0, 0.5);
@@ -171,6 +172,11 @@
 
         .event-button:hover::before {
             transform: translateX(0);
+        }
+
+        /* Add spacing between icon and text inside buttons */
+        .event-button i {
+            margin-right: 10px; /* Add this line */
         }
 
         .social-links a {
@@ -351,6 +357,11 @@
              text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
         }
 
+        /* Add spacing between icon and text in schedule-special */
+        .schedule-special i {
+            margin-right: 10px; /* Add this line */
+        }
+
         /* Media queries for overall responsiveness */
         @media (max-width: 992px) { /* Tablet and smaller desktop screens */
             .schedule-card {
@@ -398,7 +409,7 @@
 
             .event-button {
                 font-size: 1.2em;
-                margin: 10px;
+                margin: 10px 10px;
                 padding: 15px 25px;
             }
 
@@ -461,6 +472,11 @@
             .event-button {
                 font-size: 1em;
                 padding: 12px 20px;
+                margin: 10px 5px; /* Even smaller horizontal margins */
+                display: block; /* Stack the buttons */
+                width: 90%; /* Make them take up most of the width */
+                margin-left: auto;
+                margin-right: auto;
             }
 
             .rules-list li i {
@@ -534,37 +550,6 @@
             padding: 8px 12px;   /* Add a bit of padding around the text */
         }
 
-        /* Target Desktop View on Mobile */
-        @media (min-width: 1200px) { /* Or a larger value if needed */
-            h1 {
-                font-size: 3.5em; /* Reset to original size */
-            }
-
-            .schedule-card {
-                width: calc(50% - 25px); /* Restore two-card layout */
-            }
-
-            .event-button {
-                font-size: 1.4em; /* Restore button size */
-            }
-
-            header {
-               padding: 40px; /* Reset header padding */
-            }
-
-            /* Specifically target rules-list and schedule-cards */
-            ul.rules-list {
-                max-width: 800px; /* Or whatever the original max-width was */
-                margin: 40px auto; /* Or original margins */
-            }
-
-            .schedule-cards {
-                display: flex;         /* Restore the flex layout */
-                flex-wrap: wrap;       /* Allow wrapping */
-                justify-content: center; /* Center items */
-                gap: 25px;              /* Restore the gap */
-            }
-        }
 
     </style>
 </head>
