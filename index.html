@@ -16,9 +16,10 @@
 
         body {
             line-height: 1.5;
-            -webkit-text-size-adjust: 100%; /* Prevent iOS text zoom */
+            -webkit-text-size-adjust: 100%;
             text-rendering: optimizeSpeed;
-            font-size: 16px; /* Base font size for rem units */
+            font-size: 16px;
+            font-family: 'Oswald', sans-serif; /* Ensure font is applied */
         }
 
         img {
@@ -28,15 +29,15 @@
 
         /* General Styles */
         body {
-            font-family: 'Oswald', sans-serif;
             background: linear-gradient(to bottom, #1e0038, #6a1b9a, #e91e63);
             color: #ffffff;
             margin: 0;
             padding: 0;
             overflow-x: hidden;
+            transition: background 0.3s ease; /*Smooth transition for background*/
         }
 
-        /* Add a subtle overlay for texture */
+        /* Subtle Overlay Texture */
         body::before {
             content: "";
             position: fixed;
@@ -52,8 +53,8 @@
         /* Header */
         header {
             display: flex;
-            justify-content: space-between; /* Distribute space evenly */
-            align-items: center; /* Vertically align items */
+            justify-content: space-between;
+            align-items: center;
             padding: 10px;
             background-color: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(12px);
@@ -61,27 +62,33 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             position: relative;
             overflow: hidden;
+            transition: background-color 0.3s ease, backdrop-filter 0.3s ease, box-shadow 0.3s ease; /*Added smooth transitions*/
         }
 
         .college-logo, .biotech-logo {
             display: flex;
             justify-content: center;
             align-items: center;
-            width: 25%; /* Take up 25% of available width */
-            max-width: 120px; /* Set a maximum width */
+            width: 25%;
+            max-width: 120px;
             height: auto;
         }
 
-       .college-logo img, .biotech-logo img {
+        .college-logo img, .biotech-logo img {
             max-width: 100%;
             max-height: 100%;
-            display: block; /* Ensure images are treated as blocks */
+            display: block;
+            transition: transform 0.3s ease; /*Added smooth transition*/
+        }
+
+        .college-logo img:hover, .biotech-logo img:hover{
+            transform: scale(1.1); /*Scale on hover*/
         }
 
         .header-text {
-            flex-grow: 1; /* Allow text area to take up remaining space */
-            text-align: center; /* Center the text within this area */
-            padding: 0 5px; /* Add some horizontal padding */
+            flex-grow: 1;
+            text-align: center;
+            padding: 0 5px;
         }
 
         .header-text h1 {
@@ -92,12 +99,23 @@
             text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
             letter-spacing: 1px;
             text-transform: uppercase;
+            transition: color 0.3s ease, text-shadow 0.3s ease; /*Added smooth transitions*/
+        }
+
+         .header-text h1:hover{
+            color: #ffc107;
+            text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
         }
 
         .header-text p {
             color: #eee;
             margin: 2px 0;
             font-size: 0.7em;
+            transition: color 0.3s ease; /*Added smooth transitions*/
+        }
+
+        .header-text p:hover{
+            color: #ffffff;
         }
 
         .header-text h2 {
@@ -105,12 +123,17 @@
             font-size: 1em;
             font-weight: 600;
             margin: 5px 0;
+            transition: color 0.3s ease; /*Added smooth transitions*/
         }
 
+        .header-text h2:hover{
+            color: #ffc107;
+        }
 
         /* Main Content */
         main {
             position: relative;
+             transition: opacity 0.5s ease, transform 0.5s ease;
         }
 
         /* Hero Section */
@@ -119,6 +142,7 @@
             text-align: center;
             overflow: hidden;
             position: relative;
+             transition: opacity 0.5s ease, transform 0.5s ease;
         }
 
         .club-logo-space {
@@ -126,10 +150,17 @@
         }
 
         .club-logo-space img {
-            width: 150px;  /* Adjust the size as needed */
-            height: auto;    /* Maintain aspect ratio */
-            display: block;   /* Remove extra space */
-            margin: 0 auto;  /* Center horizontally */
+            width: 150px;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /*Added smooth transitions*/
+            border-radius: 10px;
+        }
+
+        .club-logo-space img:hover{
+             transform: scale(1.1);
+             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
         }
 
         #hero h1 {
@@ -140,6 +171,12 @@
             text-transform: uppercase;
             letter-spacing: 2px;
             color: #ffc107;
+            transition: color 0.3s ease, text-shadow 0.3s ease; /*Added smooth transitions*/
+        }
+
+        #hero h1:hover{
+            color: #ffffff;
+            text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
         }
 
         #hero p {
@@ -147,6 +184,12 @@
             color: #eee;
             margin-bottom: 20px;
             text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+             transition: color 0.3s ease, text-shadow 0.3s ease; /*Added smooth transitions*/
+        }
+
+        #hero p:hover{
+            color: #ffffff;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
         }
 
         .hero-buttons {
@@ -154,24 +197,58 @@
             justify-content: center;
             gap: 10px;
             margin-top: 10px;
-            flex-direction: column; /* Stack on mobile */
-            align-items: center; /* Center buttons */
+            flex-direction: column;
+            align-items: center;
         }
 
-        .hero-button {
+         /* Common button styles */
+         .hero-button {
             background-color: rgba(255, 255, 255, 0.1);
             color: #fff;
-            border: 2px solid #ffc107;
-            padding: 8px 16px;
-            border-radius: 5px;
+            padding: 10px 20px; /* Adjusted padding for better visual appeal */
+            border-radius: 8px; /* Slightly more rounded corners */
             cursor: pointer;
-            font-size: 0.9em;
-            font-weight: 500;
+            font-size: 1em;
+            font-weight: 600; /* Bolder text */
             text-decoration: none;
-            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, color 0.3s ease;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+            box-shadow: 0 3px 7px rgba(0, 0, 0, 0.4);
             width: 80%;
             text-align: center;
+            border: 2px solid transparent; /* Transparent border */
+        }
+
+        /* Button Hover State */
+        .hero-button:hover {
+            transform: translateY(-3px); /* Gentle lift */
+            box-shadow: 0 5px 12px rgba(0, 0, 0, 0.5);
+            color: #ffc107; /* Gold color text on hover */
+            border-color: #ffc107; /* Gold border on hover */
+            background-color: rgba(255, 255, 255, 0.2); /* Lighten background */
+        }
+
+         /* Register Now Button - Glowing Effect */
+        .hero-buttons a[href="#google-form"] {
+            border: 2px solid #00bcd4; /* Cyan border for distinction */
+            color: #00bcd4; /* Cyan color text */
+            animation: pulse 2s infinite alternate; /* Subtle pulsing animation */
+        }
+
+        .hero-buttons a[href="#google-form"]:hover {
+            color: #fff; /* White text on hover */
+            border-color: #fff; /* White border on hover */
+            background-color: rgba(0, 188, 212, 0.3); /* Light cyan background */
+            animation: none; /* Stop pulsing on hover */
+        }
+
+        /* Pulse Animation */
+        @keyframes pulse {
+            from {
+                box-shadow: 0 3px 7px rgba(0, 0, 0, 0.4), 0 0 0 0 rgba(0, 188, 212, 0.5);
+            }
+            to {
+                box-shadow: 0 3px 7px rgba(0, 0, 0, 0.4), 0 0 10px 10px rgba(0, 188, 212, 0);
+            }
         }
 
         /* Event Details Section */
@@ -186,6 +263,12 @@
             backdrop-filter: blur(12px);
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
             border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: background-color 0.3s ease, backdrop-filter 0.3s ease, box-shadow 0.3s ease; /*Added smooth transitions*/
+        }
+
+        #event-details:hover{
+            background-color: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.5);
         }
 
         #event-details h2 {
@@ -197,6 +280,12 @@
             letter-spacing: 1px;
             text-transform: uppercase;
             color: #ffc107;
+            transition: color 0.3s ease, text-shadow 0.3s ease; /*Added smooth transitions*/
+        }
+
+        #event-details h2:hover{
+            color: #ffffff;
+            text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
         }
 
         .event-details-container {
@@ -230,18 +319,37 @@
             color: #ffc107;
             margin-bottom: 8px;
             text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, text-shadow 0.3s ease, color 0.3s ease; /*Added smooth transitions*/
+        }
+
+        .event-detail i:hover{
+            transform: scale(1.2);
+            color: #ffffff;
+            text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
         }
 
         .event-detail h3 {
             font-size: 1.2em;
             margin-bottom: 5px;
             font-weight: 600;
+            transition: transform 0.3s ease, color 0.3s ease; /*Added smooth transitions*/
+        }
+
+        .event-detail h3:hover{
+            transform: scale(1.1);
+            color: #ffc107;
         }
 
         .event-detail p {
             color: #eee;
             font-size: 0.9em;
             line-height: 1.4;
+             transition: transform 0.3s ease, color 0.3s ease; /*Added smooth transitions*/
+        }
+
+        .event-detail p:hover{
+            transform: scale(1.1);
+            color: #ffffff;
         }
 
         /* Slideshow Container */
@@ -251,6 +359,12 @@
             margin: auto;
             border-radius: 20px;
             overflow: hidden;
+            transition: box-shadow 0.3s ease, background-color 0.3s ease; /*Added smooth transitions*/
+        }
+
+        .slideshow-container:hover{
+             box-shadow: 0 12px 25px rgba(0, 0, 0, 0.5);
+             background-color: rgba(255, 255, 255, 0.1);
         }
 
         /* Hide the images by default */
@@ -338,6 +452,12 @@
             backdrop-filter: blur(15px);
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
             border: 1px solid rgba(255, 255, 255, 0.2);
+             transition: background-color 0.3s ease, backdrop-filter 0.3s ease, box-shadow 0.3s ease; /*Added smooth transitions*/
+        }
+
+        #gallery:hover{
+            background-color: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.5);
         }
 
         #gallery h2 {
@@ -347,6 +467,12 @@
             letter-spacing: 1px;
             text-transform: uppercase;
             color: #ffc107;
+             transition: color 0.3s ease, text-shadow 0.3s ease; /*Added smooth transitions*/
+        }
+
+        #gallery h2:hover{
+            color: #ffffff;
+            text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
         }
 
         /* Add a subtle translation */
@@ -367,6 +493,12 @@
         #google-form {
             padding: 30px 10px;
             text-align: center;
+             transition: background-color 0.3s ease, box-shadow 0.3s ease; /*Added smooth transitions*/
+        }
+
+        #google-form:hover{
+           background-color: rgba(255, 255, 255, 0.1);
+           box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
         }
 
         #google-form h2 {
@@ -376,16 +508,28 @@
             color: #ffc107;
             letter-spacing: 1px;
             text-transform: uppercase;
+            transition: color 0.3s ease, text-shadow 0.3s ease; /*Added smooth transitions*/
+        }
+
+        #google-form h2:hover{
+            color: #ffffff;
+            text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
         }
 
         #google-form iframe {
-            width: 100%;
+            width: 100%;  /* Make the iframe responsive */
             max-width: 800px;
             height: 600px;
             margin: 0 auto;
             border: none;
             border-radius: 15px;
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
+        }
+
+        #google-form iframe:hover{
+            transform: scale(1.02);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.5);
         }
 
          /* Contacts */
@@ -393,6 +537,7 @@
             padding: 30px 10px;
             text-align: center;
             overflow: hidden;
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
         }
 
         #contact h2 {
@@ -402,6 +547,12 @@
             letter-spacing: 1px;
             text-transform: uppercase;
             color: #ffc107;
+            transition: color 0.3s ease, text-shadow 0.3s ease; /*Added smooth transitions*/
+        }
+
+        #contact h2:hover{
+             color: #ffffff;
+             text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
         }
 
         .contact-grid {
@@ -447,6 +598,13 @@
             font-size: 1.5em;
             margin-bottom: 10px;
             text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+            transition: transform 0.3s ease, text-shadow 0.3s ease, color 0.3s ease;
+        }
+
+        .contact-item i:hover{
+            transform: scale(1.2);
+            color: #ffffff;
+            text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
         }
 
         .contact-item h3 {
@@ -454,34 +612,46 @@
             margin-bottom: 5px;
             font-weight: 600;
             cursor: pointer;
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        .contact-item h3:hover{
+            transform: scale(1.1);
+            color: #ffc107;
         }
 
         .contact-item p {
             color: #eee;
             font-size: 0.9em;
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        .contact-item p:hover{
+           transform: scale(1.1);
+           color: #ffffff;
         }
 
         /* Modern Touch Icon */
         .touch-icon {
-            position: absolute;
-            bottom: 10px;
-            right: 10px;
-            font-size: 1.8em;                        /* Slightly larger for prominence */
+            font-size: 1em;                       /* Set to normal size */
             color: rgba(255, 255, 255, 0.7);         /* Soft white with transparency */
             backdrop-filter: blur(5px);              /* Frosted glass effect */
-            padding: 8px;
+            padding: 5px;                            /* Reduced padding */
             border-radius: 50%;                      /* Perfect circle */
-            border: 1px solid rgba(255, 255, 255, 0.3); 
+            border: 1px solid rgba(255, 255, 255, 0.3);
             transition: transform 0.5s ease, opacity 0.4s ease, box-shadow 0.4s ease;
             cursor: pointer;
             opacity: 0.9;
+            position: absolute;
+            bottom: 5px;                              /* Adjusted position */
+            right: 5px;                               /* Adjusted position */
         }
 
         /* Hover Effect */
         .touch-icon:hover {
-            transform: scale(1.3) translateY(-5px);  /* Gentle lift with scaling */
+            transform: scale(1.2) translateY(-3px);  /* Reduced scaling a bit */
             opacity: 1;
-            box-shadow: 0 8px 20px rgba(255, 255, 255, 0.5);  /* Soft glow shadow */
+            box-shadow: 0 6px 15px rgba(255, 255, 255, 0.5);  /* Reduced glow shadow */
         }
 
         /* Ripple Animation */
@@ -490,7 +660,7 @@
                 box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4);
             }
             70% {
-                box-shadow: 0 0 0 15px rgba(255, 255, 255, 0);
+                box-shadow: 0 0 0 10px rgba(255, 255, 255, 0); /* Reduced ripple size */
             }
             100% {
                 box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
@@ -507,6 +677,7 @@
              padding: 30px 10px;
             text-align: center;
              overflow: hidden;
+              transition: transform 0.5s ease, box-shadow 0.5s ease;
         }
 
         #official h2 {
@@ -516,6 +687,12 @@
             letter-spacing: 1px;
             text-transform: uppercase;
             color: #ffc107;
+             transition: color 0.3s ease, text-shadow 0.3s ease;
+        }
+
+         #official h2:hover{
+            color: #ffffff;
+             text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
         }
 
         .official-grid {
@@ -566,17 +743,36 @@
             font-size: 1.5em;
             margin-bottom: 10px;
             text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+             transition: transform 0.3s ease, text-shadow 0.3s ease, color 0.3s ease;
+        }
+
+         .official-item i:hover{
+            transform: scale(1.2);
+            color: #ffffff;
+            text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
         }
 
         .official-item h3 {
             font-size: 1.2em;
             margin-bottom: 5px;
             font-weight: 600;
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        .official-item h3:hover{
+            transform: scale(1.1);
+            color: #ffc107;
         }
 
         .official-item p {
             color: #eee;
             font-size: 0.9em;
+             transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+         .official-item p:hover{
+            transform: scale(1.1);
+            color: #ffffff;
         }
 
 
@@ -585,6 +781,14 @@
         #about-club {
             padding: 30px 10px;
             text-align: center;
+             transition: transform 0.5s ease, box-shadow 0.5s ease;
+        }
+
+        #about-college:hover,
+        #about-department:hover,
+        #about-club:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
         }
 
         #about-college h2,
@@ -593,6 +797,14 @@
             font-size: 2em;
             margin-bottom: 15px;
             text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+             transition: color 0.3s ease, text-shadow 0.3s ease;
+        }
+
+        #about-college h2:hover,
+        #about-department h2:hover,
+        #about-club h2:hover {
+             color: #ffffff;
+             text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
         }
 
         #about-college p,
@@ -603,11 +815,25 @@
             line-height: 1.6;
             max-width: 800px;
             margin: 0 auto;
+             transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+         #about-college p:hover,
+        #about-department p:hover,
+        #about-club p:hover {
+            transform: scale(1.1);
+            color: #ffffff;
         }
 
         .google-map {
             text-align: center;
             padding: 30px 10px;
+             transition: transform 0.5s ease, box-shadow 0.5s ease;
+        }
+
+         .google-map:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
         }
 
         .google-map h2 {
@@ -618,6 +844,12 @@
             text-transform: uppercase;
             color: #ffc107;
             font-family: 'Oswald', sans-serif;
+             transition: color 0.3s ease, text-shadow 0.3s ease;
+        }
+
+         .google-map h2:hover {
+             color: #ffffff;
+             text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
         }
 
         .google-map iframe {
@@ -626,19 +858,43 @@
             height: 450px;
             border: none;
             border-radius: 15px;
-            margin: 0 auto 20px; /* Adds margin below the iframe */
+            margin: 0 auto 10px; /* Adds margin below the iframe */
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+             transition: transform 0.5s ease, box-shadow 0.5s ease;
+        }
+
+         .google-map iframe:hover {
+             transform: scale(1.02);
+             box-shadow: 0 12px 25px rgba(0, 0, 0, 0.5);
         }
 
         .google-map p {
             color: #eee;
             font-size: 1em;
+             transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        .google-map p:hover{
+             transform: scale(1.1);
+            color: #ffffff;
         }
 
         .google-map i {
             color: #ffc107;
             margin-right: 5px;
+            transition: transform 0.3s ease, color 0.3s ease;
         }
+
+         .google-map i:hover{
+            transform: scale(1.2);
+            color: #ffffff;
+        }
+
+         .get-directions-button {
+            text-align: center; /* Center the button horizontally */
+            margin-top: 15px; /* Add space above the button */
+        }
+
 
         /* Footer */
         footer {
@@ -648,6 +904,12 @@
             color: #ccc;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             animation: fadeIn 1s ease-in;
+             transition: transform 0.5s ease, box-shadow 0.5s ease;
+        }
+
+        footer:hover{
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
         }
 
         .footer-content {
@@ -659,6 +921,12 @@
         .copyright {
             font-size: 1em;
             margin-bottom: 5px;
+             transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        .copyright:hover{
+             transform: scale(1.1);
+            color: #ffc107;
         }
 
         .social-links {
@@ -680,83 +948,93 @@
         }
 
         /* Payment Details Section */
-#payment-details {
-    padding: 30px 10px;
-    text-align: center;
-    background-color: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    border-radius: 15px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-    margin: 30px auto;
-    max-width: 800px;
-}
+        #payment-details {
+            padding: 30px 10px;
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            margin: 30px auto;
+            max-width: 800px;
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
+        }
 
-#payment-details h2 {
-    font-size: 2em;
-    margin-bottom: 20px;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
-    color: #ffc107;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    font-family: 'Oswald', sans-serif;
-}
+        #payment-details:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+        }
 
-.payment-grid {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-}
+        #payment-details h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+            color: #ffc107;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-family: 'Oswald', sans-serif;
+            transition: color 0.3s ease, text-shadow 0.3s ease;
+        }
 
-.payment-item {
-    text-align: center;
-}
+        #payment-details h2:hover {
+            color: #ffffff;
+            text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        }
 
-.payment-item i {
-    font-size: 1.5em;
-    margin-bottom: 10px;
-    color: #ffc107;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
-}
+        .payment-grid {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
 
-.payment-item h3 {
-    font-size: 1.2em;
-    margin-bottom: 10px;
-    font-weight: 600;
-}
+        .payment-item {
+            text-align: center;
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
+        }
 
-.gpay-button a {
-    display: inline-block;
-    padding: 14px 28px; /* Slightly larger for prominence */
-    background-color: #34a853; /* Google Pay Green */
-    color: #fff;
-    text-decoration: none;
-    border-radius: 12px; /* More rounded corners */
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3); /* Deeper shadow */
-    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
-    font-weight: 600; /* Bolder text */
-    text-transform: uppercase; /* All caps */
-    letter-spacing: 0.5px; /* Slight letter spacing for a modern look */
-    border: 2px solid transparent; /* Invisible border for hover effect */
-}
+        .payment-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+        }
 
-.gpay-button a:hover {
-    background-color: #298a47; /* Darker green on hover */
-    transform: translateY(-5px); /* More pronounced lift on hover */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); /* Enhanced shadow on hover */
-    border-color: rgba(255, 255, 255, 0.3); /* Subtle white border on hover */
-}
+        .payment-item i {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            color: #ffc107;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+            transition: transform 0.3s ease, text-shadow 0.3s ease, color 0.3s ease;
+        }
 
-.qr-code {
-    margin-top: 20px;
-    max-width: 200px; /* Adjust as needed */
-}
+        .payment-item i:hover {
+            transform: scale(1.2);
+            color: #ffffff;
+            text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        }
 
-.qr-code img {
-    width: 100%;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-}
+        .payment-item h3 {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+            font-weight: 600;
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        .payment-item h3:hover {
+            transform: scale(1.1);
+            color: #ffc107;
+        }
+
+       .gpay-payment{
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+       }
+
+        .gpay-payment img{
+            width: 150px;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
 
         /* Fade-in animation */
         @keyframes fadeIn {
@@ -765,6 +1043,18 @@
         }
 
         /* Media Queries (Mobile First) */
+        @media (min-width: 320px){ /* Very small devices (portrait phones, less than 576px) */
+            .social-links{
+                flex-direction: column;
+            }
+        }
+
+        @media (min-width: 576px) { /* Small devices (landscape phones, 576px and up) */
+            .social-links{
+                flex-direction: row;
+            }
+        }
+
         @media (min-width: 768px) { /* Tablets and Larger */
             header {
                 padding: 15px;
@@ -813,7 +1103,6 @@
             .event-detail {
                 width: 200px;
                 padding: 15px;
-                margin-bottom: 15px;
             }
             .event-detail i {
                 font-size: 2.5em;
@@ -960,7 +1249,6 @@
 
             #event-details {
                 padding: 40px 20px;
-                margin: 30px auto;
             }
 
             #event-details h2 {
@@ -970,7 +1258,6 @@
             .event-detail {
                 width: 220px;
                 padding: 20px;
-                margin-bottom: 15px;
             }
 
             .event-detail i {
@@ -1199,7 +1486,8 @@
     <section id="google-form">
         <h2>Registration Form</h2>
         <h3>Kindly go through the rulebook before Registration</h3>
-        <iframe src="https://docs.google.com/forms/d/e/YOUR_GOOGLE_FORM_EMBED_LINK_HERE/viewform?embedded=true" width="640" height="879" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+        <iframe src="https://docs.google.com/forms/d/1q_MtA-49vVJKPOlhEVMn9EpKrabX8D0LNhB92vFTglM/closedform"
+        width="100%" height="879" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
     </section>
 
 </section>
@@ -1208,16 +1496,18 @@
 <section id="payment-details">
     <h2>Payment Information</h2>
     <div class="payment-grid">
+        <div class = "gpay-payment">
+            <img src="gpay.png"    
+            alt="GPay" >
+               <h3>Pay with Gpay</h3>
+               </div>
         <div class="payment-item">
             <i class="fas fa-user"></i>
-            <h3>Kharan P</h3>
-            <div class="gpay-button">
-                <a href="YOUR_GPAY_LINK_HERE" target="_blank">Pay with GPay</a>
-            </div>
-        </div>
-        <div class="qr-code">
-            <img src="YOUR_QR_CODE_IMAGE_URL_HERE" alt="GPay QR Code">
-        </div>
+            <h3>Dr. N. Senthil Kumar</h3>
+            <div class="payment-item">
+            <i class="fas fa-phone"></i>
+             <p>Gpay Number</p>
+                <h3>7339096305</h3>
     </div>
 </section>
 
@@ -1251,110 +1541,122 @@
         </div>
     </section>
     <!-- Contact Section -->
-    <section id="contact">
+   <section id="contact">
         <h2>Contact Us</h2>
         <div class="contact-grid">
-            <div class="contact-item" onclick="window.location.href='tel:7092749563'">
+            <div class="contact-item">
                 <i class="fas fa-user"></i>
                 <h3>Ms. Hemapriya</h3>
                 <p><i class="fas fa-phone"></i> 7092749563</p>
                 <p>President</p>
-                <i class="fas fa-hand-pointer touch-icon"></i>
+                <a href="tel:7092749563" class="touch-icon">
+                    <i class="fas fa-hand-pointer"></i>
+                </a>
             </div>
-            <div class="contact-item" onclick="window.location.href='tel:7397553977'">
+            <div class="contact-item">
                 <i class="fas fa-user"></i>
                 <h3>Mr. Abilash</h3>
                 <p><i class="fas fa-phone"></i> 7397553977</p>
                 <p>Vice President</p>
-                <i class="fas fa-hand-pointer touch-icon"></i>
+                <a href="tel:7397553977" class="touch-icon">
+                    <i class="fas fa-hand-pointer"></i>
+                </a>
             </div>
-            <div class="contact-item" onclick="window.location.href='tel:6374694374'">
+            <div class="contact-item">
                 <i class="fas fa-user"></i>
                 <h3>Mr. Kharan</h3>
                 <p><i class="fas fa-phone"></i> 6374694374</p>
                 <p>Secretary</p>
-                <i class="fas fa-hand-pointer touch-icon"></i>
+                <a href="tel:6374694374" class="touch-icon">
+                    <i class="fas fa-hand-pointer"></i>
+                </a>
             </div>
-            <div class="contact-item" onclick="window.location.href='tel: 9445505156'">
+            <div class="contact-item">
                 <i class="fas fa-user"></i>
                 <h3>Mr. Kuralarasshan</h3>
                 <p><i class="fas fa-phone"></i> 9445505156</p>
                 <p>Joint Secretary</p>
-                <i class="fas fa-hand-pointer touch-icon"></i>
+                <a href="tel:9445505156" class="touch-icon">
+                    <i class="fas fa-hand-pointer"></i>
+                </a>
             </div>
         </div>
     </section>
  <!-- Google Maps Section -->
- <section class="google-map">
-    <h2>Location</h2>
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3886.0186972942054!2d80.21556067576742!3d13.081746287293128!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a526691677c384d%3A0x511217e869b9b345!2sDwaraka%20Doss%20Goverdhan%20Doss%20Vaishnav%20College!5e0!3m2!1sen!2sin!4v1718358805688!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-    <h3><i class="fas fa-map-marker-alt"></i> DWARAKA DOSS GOVERDHAN DOSS VAISHNAV COLLEGE</h3>
-</section>
-</main>
-
-<footer>
-    <div class="footer-content">
-        <div class="copyright">© 2025 Dwaraka Doss Goverdhan Doss Vaishnav College. All rights reserved.</div>
-        <div class="copyright">Follow us on our Social Media pages</div>
-        <div class="copyright">Designed by KB</div>
-        <div class="social-links">
-            <a href="#" onclick="window.location.href='https://www.instagram.com/dgvc_biotech?igsh=MW0zNnF6cmhkc3U5Mg=='">
-                <i class="fab fa-instagram"></i>
-                <h6>DGVC-BIOTECH</h6>
-            </a>              
-            <a href="#" onclick="window.location.href='https://www.instagram.com/technosaviourclub?igsh=cG4zZ2o3dWhzbzZz'">
-                <i class="fab fa-instagram"></i>
-                <h6>TECHNOSAVIOUR</h6>
-            </a>
-            <a href="#" onclick="window.location.href='https://www.linkedin.com/company/dgvcbiotech/'">
-                <i class="fab fa-linkedin"></i>
-                <h6>DGVC-BIOTECH</h6>
-            </a>
-            <a href="#" onclick="window.location.href='https://youtube.com/@dgvcbiotech6733'">
-                <i class="fab fa-youtube"></i>
-                <h6>DGVC-BIOTECH</h6>
-            </a>          
+  <section class="google-map">
+        <h2>Location</h2>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3886.0186972942054!2d80.21556067576742!3d13.081746287293128!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a526691677c384d%3A0x511217e869b9b345!2sDwaraka%20Doss%20Goverdhan%20Doss%20Vaishnav%20College!5e0!3m2!1sen!2sin!4v1718358805688!5m2!1sen!2sin" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <div class="get-directions-button">
+            <a href="https://maps.app.goo.gl/XTtwNm1T1LzsXQtDA" target="_blank" class="hero-button">Get Directions</a>
         </div>
-    </div>
-</footer>
-
-<script>
-    let slideIndex = 0;
-    showSlides();
-
-    function showSlides() {
-        let i;
-        const slides = document.getElementsByClassName("mySlides");
-        for (i = 0; i < slides.length; i++) {
-            slides[i].style.display = "none";  
+        <br>
+        <h3><i class="fas fa-map-marker-alt"></i> DWARAKA DOSS GOVERDHAN DOSS VAISHNAV COLLEGE</h3>
+    </section>
+    </main>
+    
+    <footer>
+        <div class="footer-content">
+            <div class="copyright">© 2025 Dwaraka Doss Goverdhan Doss Vaishnav College. All rights reserved.</div>
+            <div class="copyright">Follow us on our Social Media pages</div>
+            <div class="copyright">Designed by KB</div>
+            <div class="social-links">
+                <a href="#" onclick="window.location.href='https://www.instagram.com/dgvc_biotech?igsh=MW0zNnF6cmhkc3U5Mg=='">
+                    <i class="fab fa-instagram"></i>
+                    <h6>DGVC-BIOTECH</h6>
+                </a>              
+                <a href="#" onclick="window.location.href='https://www.instagram.com/technosaviourclub?igsh=cG4zZ2o3dWhzbzZz'">
+                    <i class="fab fa-instagram"></i>
+                    <h6>TECHNOSAVIOUR</h6>
+                </a>
+                <a href="#" onclick="window.location.href='https://www.linkedin.com/company/dgvcbiotech/'">
+                    <i class="fab fa-linkedin"></i>
+                    <h6>DGVC-BIOTECH</h6>
+                </a>
+                <a href="#" onclick="window.location.href='https://youtube.com/@dgvcbiotech6733'">
+                    <i class="fab fa-youtube"></i>
+                    <h6>DGVC-BIOTECH</h6>
+                </a>          
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        let slideIndex = 0;
+        showSlides();
+    
+        function showSlides() {
+            let i;
+            const slides = document.getElementsByClassName("mySlides");
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";  
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) {slideIndex = 1}    
+            slides[slideIndex - 1].style.display = "block";  
+            setTimeout(showSlides, 3000); // Change image every 3 seconds
         }
-        slideIndex++;
-        if (slideIndex > slides.length) {slideIndex = 1}    
-        slides[slideIndex - 1].style.display = "block";  
-        setTimeout(showSlides, 3000); // Change image every 3 seconds
-    }
-
-    function plusSlides(n) {
-        slideIndex += n;
-        if (slideIndex > document.getElementsByClassName("mySlides").length) {slideIndex = 1}
-        if (slideIndex < 1) {slideIndex = document.getElementsByClassName("mySlides").length}
-        showSlidesManually();
-    }
-
-    function showSlidesManually() {
-        let i;
-        const slides = document.getElementsByClassName("mySlides");
-        for (i = 0; i < slides.length; i++) {
-            slides[i].style.display = "none";  
+    
+        function plusSlides(n) {
+            slideIndex += n;
+            if (slideIndex > document.getElementsByClassName("mySlides").length) {slideIndex = 1}
+            if (slideIndex < 1) {slideIndex = document.getElementsByClassName("mySlides").length}
+            showSlidesManually();
         }
-        slides[slideIndex - 1].style.display = "block";  
-    }
-
-    function smoothScroll(target) {
-        const element = document.querySelector(target);
-        element.scrollIntoView({ behavior: 'smooth' });
-    }
-</script>
-
-</body>
-</html>
+    
+        function showSlidesManually() {
+            let i;
+            const slides = document.getElementsByClassName("mySlides");
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";  
+            }
+            slides[slideIndex - 1].style.display = "block";  
+        }
+    
+        function smoothScroll(target) {
+            const element = document.querySelector(target);
+            element.scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+    
+    </body>
+    </html>
