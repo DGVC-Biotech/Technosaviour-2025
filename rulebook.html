@@ -350,6 +350,26 @@
         }
 
         /* Media queries for overall responsiveness */
+        @media (max-width: 992px) { /* Tablet and smaller desktop screens */
+            .schedule-card {
+                width: calc(50% - 25px); /* Two cards in a row for tablets */
+            }
+
+            h1 {
+                font-size: 3em; /* Slightly smaller title for tablets */
+            }
+
+            h3 {
+                font-size: 1.3em; /* Slightly smaller subtitle for tablets */
+            }
+
+            .event-button {
+                font-size: 1.3em; /* Slightly smaller button text for tablets */
+                padding: 18px 30px;
+            }
+        }
+
+
         @media (max-width: 768px) {
             header {
                 padding: 30px;
@@ -427,7 +447,17 @@
              .schedule-card h4 {
                 font-size: 1.2em;
             }
+
+            footer {
+                padding: 30px;
+            }
+
+            .contact-button {
+                font-size: 1em;
+                padding: 12px 24px;
+            }
         }
+
         /* Header-Specific Styles for Mobile */
         @media (max-width: 600px) {
             header {
@@ -454,6 +484,20 @@
                 font-size: 0.9em;
             }
         }
+
+        /* Target iPhones specifically */
+        @media only screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) { /* iPhone X, XS, 11 Pro */
+            body {
+                padding: 15px; /* Slightly reduce body padding */
+            }
+        }
+
+        @media only screen and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) { /* iPhone 11 Pro Max, XS Max */
+            h1 {
+                font-size: 2.5em; /* Increase title font size */
+            }
+        }
+
 
     </style>
 </head>
