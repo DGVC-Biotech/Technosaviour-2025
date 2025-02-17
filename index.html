@@ -45,7 +45,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cg fill='%23000000' fill-opacity='0.03'%3E%3Cpath d='M0 0h100v100H0V0zM50 50a20 20 0 1 0 0 0.001zM50 10a40 40 0 1 1 0 0.001zM10 50a40 40 0 1 1 0 0.001zM50 90a40 40 0 1 1 0 0.001zM90 50a40 40 0 1 1 0 0.001zM10 10a40 40 0 1 1 0 0.001zM90 90a40 40 0 1 1 0 0.001zM10 90a40 40 0 1 1 0 0.001zM90 10a40 40 0 1 1 0 0.001z'/%3E%3C/g%3E%3C/svg%3E");
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 0 100'%3E%3Cg fill='%23000000' fill-opacity='0.03'%3E%3Cpath d='M0 0h100v100H0V0zM50 50a20 20 0 1 0 0 0.001zM50 10a40 40 0 1 1 0 0.001zM10 50a40 40 0 1 1 0 0.001zM50 90a40 40 0 1 1 0 0.001zM90 50a40 40 0 1 1 0 0.001zM10 10a40 40 0 1 1 0 0.001zM90 90a40 40 0 1 1 0 0.001zM10 90a40 40 0 1 1 0 0.001zM90 10a40 40 0 1 1 0 0.001z'/%3E%3C/g%3E%3C/svg%3E");
             pointer-events: none;
             z-index: -1;
         }
@@ -228,13 +228,13 @@
         }
 
          /* Register Now Button - Glowing Effect */
-        .hero-buttons a[href="#google-form"] {
+        .hero-buttons a[href="https://docs.google.com/forms/d/e/1FAIpQLSek2NeewahIFZTuBSxAeiB74ThNDuV9FQgF8oYZZBGO3V9Dmg/viewform?usp=header"] {
             border: 2px solid #00bcd4; /* Cyan border for distinction */
             color: #00bcd4; /* Cyan color text */
             animation: pulse 2s infinite alternate; /* Subtle pulsing animation */
         }
 
-        .hero-buttons a[href="#google-form"]:hover {
+        .hero-buttons a[href="https://docs.google.com/forms/d/e/1FAIpQLSek2NeewahIFZTuBSxAeiB74ThNDuV9FQgF8oYZZBGO3V9Dmg/viewform?usp=header"]:hover {
             color: #fff; /* White text on hover */
             border-color: #fff; /* White border on hover */
             background-color: rgba(0, 188, 212, 0.3); /* Light cyan background */
@@ -508,6 +508,7 @@
             color: #ffc107;
             letter-spacing: 1px;
             text-transform: uppercase;
+            font-family: 'Oswald', sans-serif;
             transition: color 0.3s ease, text-shadow 0.3s ease; /*Added smooth transitions*/
         }
 
@@ -516,20 +517,40 @@
             text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
         }
 
-        #google-form iframe {
-            width: 100%;  /* Make the iframe responsive */
-            max-width: 800px;
-            height: 600px;
-            margin: 0 auto;
-            border: none;
-            border-radius: 15px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
-            transition: transform 0.5s ease, box-shadow 0.5s ease;
+         #google-form h3 {
+            font-size: 1em;
+            color: #eee;
+            margin-bottom: 20px;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+             transition: color 0.3s ease, text-shadow 0.3s ease; /*Added smooth transitions*/
         }
 
-        #google-form iframe:hover{
-            transform: scale(1.02);
-            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.5);
+         #google-form h3:hover{
+            color: #ffffff;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Style for the link to the Google Form */
+        .register-link {
+            display: inline-block;
+            padding: 12px 25px; /* Adjusted padding */
+            background-color: rgba(0, 188, 212, 0.3); /* Light cyan background */
+            color: #fff;  /* White text color */
+            border: 2px solid #00bcd4; /* Cyan border */
+            border-radius: 8px;       /* Rounded corners */
+            text-decoration: none;    /* Remove underline */
+            font-weight: 600;          /* Bold text */
+            box-shadow: 0 3px 7px rgba(0, 0, 0, 0.4);
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        /* Hover effect */
+        .register-link:hover {
+            background-color: rgba(0, 188, 212, 0.5); /* Darker cyan background */
+            color: #000;            /* Black text color */
+            border-color: #fff;      /* White border */
+            transform: translateY(-3px); /* Slight upward movement */
+            box-shadow: 0 5px 12px rgba(0, 0, 0, 0.5);
         }
 
          /* Contacts */
@@ -1125,6 +1146,9 @@
             #google-form h2 {
                 font-size: 2.5em;
             }
+             #google-form h3 {
+                font-size: 1.2em;
+            }
             #contact {
                 padding: 40px 20px;
             }
@@ -1381,6 +1405,14 @@
         /* * {
             outline: 1px solid rgba(255, 0, 0, 0.1) !important;
         } */
+
+/* Mobile responsiveness for the Google Form */
+@media (max-width: 767px) {
+  #google-form iframe {
+    height: 600px; /* Adjust further for mobile view, test different values */
+  }
+}
+
     </style>
 </head>
 <body>
@@ -1409,7 +1441,7 @@
         <h1>TECHNOSAVIOUR 2025</h1>
         <p>A fest exclusively for Life Science Students</p>
         <div class="hero-buttons">
-            <a href="#google-form" class="hero-button" onclick="smoothScroll('#google-form')">Register Now</a>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSek2NeewahIFZTuBSxAeiB74ThNDuV9FQgF8oYZZBGO3V9Dmg/viewform?usp=header" class="hero-button" target="_blank">Register Now</a>
             <a href="rulebook.html" class="hero-button">Rulebook</a>
             <a href="Technoflyer.pdf" class="hero-button">Flyer</a>
         </div>
@@ -1453,7 +1485,7 @@
             <div class="mySlides fade">
                 <img src="3.jpg" alt="Gallery Image 3">
             </div>
-            
+
             <div class="mySlides fade">
                 <img src="4.jpg" alt="Gallery Image 4">
             </div>
@@ -1483,21 +1515,29 @@
     </section>
 
     <!-- Google Forms Section -->
-    <section id="google-form">
-        <h2>Registration Form</h2>
-        <h3>Kindly go through the rulebook before Registration</h3>
-        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSek2NeewahIFZTuBSxAeiB74ThNDuV9FQgF8oYZZBGO3V9Dmg/viewform?usp=header"
-        width="100%" height="879" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
-    </section>
-
+<section id="google-form">
+    <h2>Registration Form</h2>
+    <h3>Kindly go through the rulebook before Registration</h3>
+    <div style="overflow: hidden; position: relative;">
+        <iframe
+            src="https://docs.google.com/forms/d/e/1FAIpQLSek2NeewahIFZTuBSxAeiB74ThNDuV9FQgF8oYZZBGO3V9Dmg/viewform?embedded=true"
+            width="100%"
+            height="500px"  /* Adjust this for initial visibility */
+            style="position: relative; border: none; display: block; margin: 0 auto;"
+            allowfullscreen
+            loading="lazy"
+        >Loading…</iframe>
+    </div>
 </section>
+
+    </section>
 
 <!-- Payment Details Section -->
 <section id="payment-details">
     <h2>Payment Information</h2>
     <div class="payment-grid">
         <div class = "gpay-payment">
-            <img src="gpay.png"    
+            <img src="gpay.png"
             alt="GPay" >
                <h3>Pay with Gpay</h3>
                </div>
@@ -1593,71 +1633,71 @@
         <h3><i class="fas fa-map-marker-alt"></i> DWARAKA DOSS GOVERDHAN DOSS VAISHNAV COLLEGE</h3>
     </section>
     </main>
-    
+
     <footer>
         <div class="footer-content">
             <div class="copyright">© 2025 TECHNOSAVIOUR. All rights reserved.</div>
             <div class="copyright">Follow us on our Social Media pages</div>
             <div class="social-links">
-                <a href="#" onclick="window.location.href='https://www.instagram.com/dgvc_biotech?igsh=MW0zNnF6cmhkc3U5Mg=='">
+                <a href="https://www.instagram.com/dgvc_biotech?igsh=MW0zNnF6cmhkc3U5Mg==">
                     <i class="fab fa-instagram"></i>
                     <h6>DGVC-BIOTECH</h6>
-                </a>              
-                <a href="#" onclick="window.location.href='https://www.instagram.com/technosaviourclub?igsh=cG4zZ2o3dWhzbzZz'">
+                </a>
+                <a href="https://www.instagram.com/technosaviourclub?igsh=cG4zZ2o3dWhzbzZz">
                     <i class="fab fa-instagram"></i>
                     <h6>TECHNOSAVIOUR</h6>
                 </a>
-                <a href="#" onclick="window.location.href='https://www.linkedin.com/company/dgvcbiotech/'">
+                <a href="https://www.linkedin.com/company/dgvcbiotech/">
                     <i class="fab fa-linkedin"></i>
                     <h6>DGVC-BIOTECH</h6>
                 </a>
-                <a href="#" onclick="window.location.href='https://youtube.com/@dgvcbiotech6733'">
+                <a href="https://youtube.com/@dgvcbiotech6733">
                     <i class="fab fa-youtube"></i>
                     <h6>DGVC-BIOTECH</h6>
-                </a>          
+                </a>
             </div>
             <br>
             <div class="copyright">Designed by KB</div>
         </div>
     </footer>
-    
+
     <script>
         let slideIndex = 0;
         showSlides();
-    
+
         function showSlides() {
             let i;
             const slides = document.getElementsByClassName("mySlides");
             for (i = 0; i < slides.length; i++) {
-                slides[i].style.display = "none";  
+                slides[i].style.display = "none";
             }
             slideIndex++;
-            if (slideIndex > slides.length) {slideIndex = 1}    
-            slides[slideIndex - 1].style.display = "block";  
+            if (slideIndex > slides.length) {slideIndex = 1}
+            slides[slideIndex - 1].style.display = "block";
             setTimeout(showSlides, 3000); // Change image every 3 seconds
         }
-    
+
         function plusSlides(n) {
             slideIndex += n;
             if (slideIndex > document.getElementsByClassName("mySlides").length) {slideIndex = 1}
             if (slideIndex < 1) {slideIndex = document.getElementsByClassName("mySlides").length}
             showSlidesManually();
         }
-    
+
         function showSlidesManually() {
             let i;
             const slides = document.getElementsByClassName("mySlides");
             for (i = 0; i < slides.length; i++) {
-                slides[i].style.display = "none";  
+                slides[i].style.display = "none";
             }
-            slides[slideIndex - 1].style.display = "block";  
+            slides[slideIndex - 1].style.display = "block";
         }
-    
+
         function smoothScroll(target) {
             const element = document.querySelector(target);
             element.scrollIntoView({ behavior: 'smooth' });
         }
     </script>
-    
-    </body>
-    </html>
+
+</body>
+</html>
