@@ -1063,6 +1063,136 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
+        #sponsors {
+    padding: 30px 10px;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    margin: 30px auto;
+    max-width: 900px;  /* Adjust to fit your overall design */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#sponsors:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+}
+
+#sponsors h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+    color: #ffc107;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-family: 'Oswald', sans-serif;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+#sponsors h2:hover {
+    color: #ffffff;
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.sponsors-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 20px; /* Space between sponsor logos */
+    padding: 10px;
+}
+
+.sponsor-item {
+    width: 200px; /* Adjust as needed */
+    height: 120px; /* Adjust as needed */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.sponsor-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.sponsor-item a {
+    display: block; /* Make the link fill the container */
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sponsor-item img {
+    max-width: 90%;
+    max-height: 90%;
+    display: block;
+    object-fit: contain;  /* Prevent distortion, fit within the box */
+    transition: transform 0.3s ease;
+}
+
+.sponsor-item img:hover {
+    transform: scale(1.1);
+}
+
+.sponsor-type {
+    font-size: 0.9em;        /* Adjust the size as needed */
+    color: #eee;              /* Or any color that fits your design */
+    text-align: center;       /* Center the text */
+    margin-top: 5px;        /* Add a little space between the logo and the text */
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+    transition: color 0.3s ease; /* Smooth transition */
+}
+
+.sponsor-type:hover {
+    color: #fff;            /* Change color on hover */
+}
+
+/* Adjust sponsor-item style for text */
+.sponsor-item {
+    flex-direction: column; /* Stack logo and text vertically */
+    align-items: center;    /* Center horizontally */
+    padding: 10px;
+    width: 200px; /* Adjust as needed */
+    height: auto; /* Adjust as needed */
+}
+
+.sponsor-item a {
+    display: block;
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sponsor-item img {
+        max-width: 90%;
+        max-height: 90%;
+        display: block;
+        object-fit: contain; /* Prevent distortion, fit within the box */
+        transition: transform 0.3s ease;
+    }
+
+/* Responsive adjustments (example) */
+@media (max-width: 768px) {
+    .sponsor-item {
+        width: 150px; /* Smaller on mobile */
+        height: 90px;
+    }
+
+    .sponsors-container {
+        gap: 10px;
+    }
+}
+
         /* Media Queries (Mobile First) */
         @media (min-width: 320px){ /* Very small devices (portrait phones, less than 576px) */
             .social-links{
@@ -1446,6 +1576,20 @@
             <a href="Technoflyer.pdf" class="hero-button">Flyer</a>
         </div>
     </section>
+
+    <section id="sponsors">
+        <h2>Our Esteemed Sponsors</h2>
+        <div class="sponsors-container">
+            <div class="sponsor-item">
+                <a href="poorvika.png" target="_blank">
+                    <img src="poorvika.png" alt="poorvika">
+                </a>
+                <br>
+                <h1 class="sponsor-type">Certificate Sponsor</h1>
+            </div>
+        </div>
+    </section>
+    
 
     <!-- Event Details Section -->
     <section id="event-details">
