@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rulebook - TECHNOSAVIOUR 2025</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Oswald:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        /* CSS Reset & Basic Setup */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Oswald', sans-serif; color: #ffffff; background-color: #0d051c; line-height: 1.6; text-rendering: optimizeSpeed; overflow-x: hidden; }
+        #vanta-canvas { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -1; }
+        main { position: relative; z-index: 5; padding: 10px; }
+
+        /* Header (Styled like a Section) */
+        header { text-align: center; padding: 30px 20px; margin: 25px auto; max-width: 950px; border-radius: 20px; background: radial-gradient(circle, rgba(30, 0, 56, 0.6) 0%, rgba(10, 5, 25, 0.5) 100%); backdrop-filter: blur(15px); box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3); border: 1px solid rgba(255, 255, 255, 0.1); }
+        header h1 { font-size: 2.5em; color: #ffc107; margin-bottom: 15px; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); }
+        header h3 { font-size: 1.2em; color: #ddd; text-shadow: 1px 1px 2px rgba(0,0,0,0.5); font-family: 'Montserrat', sans-serif; font-weight: 400; }
+
+        /* Professional Section Styling */
+        section { padding: 30px 20px; margin: 25px auto; max-width: 950px; border-radius: 20px; background: radial-gradient(circle, rgba(30, 0, 56, 0.6) 0%, rgba(10, 5, 25, 0.5) 100%); backdrop-filter: blur(15px); box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3); border: 1px solid rgba(255, 255, 255, 0.1); transition: all 0.4s ease; position: relative; overflow: hidden; will-change: transform, box-shadow; /* Performance Optimization */ }
+        
+        section::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            border-radius: 20px;
+            border: 2px solid transparent;
+            background: linear-gradient(145deg, #e91e63, #6a1b9a) border-box;
+            -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: destination-out;
+            mask-composite: exclude;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            pointer-events: none; /* This critical line allows clicks to pass through the pseudo-element */
+        }
+        
+        section:hover { transform: translateY(-5px) scale(1.01); box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4); }
+        section:hover::before { opacity: 1; }
+        section h2 { text-align: center; font-size: 2.2em; margin-bottom: 25px; text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5); color: #ffc107; }
+
+        /* Rules List */
+        .rules-list { list-style-type: none; padding: 0; margin: 20px auto; max-width: 800px; }
+        .rules-list li { background: rgba(0, 0, 0, 0.3); margin: 15px 0; padding: 20px; border-radius: 15px; border: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; gap: 20px; transition: all 0.3s ease; }
+        .rules-list li:hover { transform: translateY(-5px); background: rgba(0,0,0,0.5); }
+        .rules-list li i { color: #ffc107; font-size: 1.8em; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6); flex-shrink: 0; }
+        .rules-list li p { margin-bottom: 0; text-align: left; font-family: 'Montserrat', sans-serif; }
+
+        /* Event Buttons */
+        .event-options { text-align: center; }
+        .event-button { display: inline-flex; align-items: center; justify-content: center; background: rgba(255, 255, 255, 0.1); margin: 10px 15px; padding: 15px 30px; border-radius: 12px; box-shadow: 0 6px 14px rgba(0, 0, 0, 0.5); cursor: pointer; transition: all 0.3s ease; color: #ffc107; text-decoration: none; font-size: 1.3em; position: relative; z-index: 2; /* Added to be safe */ }
+        .event-button:hover { transform: scale(1.05); box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6); color: #fff; background: rgba(255,255,255,0.2); }
+        .event-button i { margin-right: 10px; }
+
+        /* Event Schedule */
+        .event-schedule p { text-align: center; color: #ddd; font-style: italic; margin-top: -15px; margin-bottom: 25px; }
+        .schedule-special { text-align: center; font-weight: bold; color: #ffc107; padding: 15px; background: linear-gradient(45deg, rgba(233, 30, 99, 0.3), rgba(106, 27, 154, 0.3)); border-radius: 15px; margin-bottom: 20px; font-size: 1.3em; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6); }
+        .schedule-special i { margin-right: 10px; }
+        .schedule-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+        .schedule-card { background: rgba(0, 0, 0, 0.3); border-radius: 15px; padding: 20px; box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4); text-align: left; transition: all 0.3s ease; will-change: transform, box-shadow; /* Performance Optimization */ }
+        .schedule-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6); }
+        .schedule-card h4 { font-size: 1.4em; color: #ffc107; margin-bottom: 15px; border-bottom: 1px solid rgba(255, 193, 7, 0.3); padding-bottom: 10px; }
+        .schedule-card .event-item { margin-bottom: 10px; font-family: 'Montserrat', sans-serif; }
+        .schedule-card .event-item i { margin-right: 8px; color: #00e5ff; }
+        .schedule-card .venue { color: #ffc107; font-weight: 600; margin-top: 5px; font-size: 0.95em; }
+        .schedule-card .venue::before { content: "Venue: "; font-weight: normal; color: #ddd; }
+
+        /* Enhanced Footer */
+        footer { padding: 40px 20px 20px; background-color: #0d051c; color: #ccc; border-top: 2px solid transparent; border-image: linear-gradient(to right, #6a1b9a, #e91e63) 1; }
+        .footer-container { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; text-align: left; }
+        .footer-column h4 { font-size: 1.3em; color: #ffc107; margin-bottom: 15px; text-transform: uppercase; }
+        .footer-column p, .footer-column a { font-family: 'Montserrat', sans-serif; font-size: 0.9em; color: #ccc; text-decoration: none; transition: color 0.3s ease; line-height: 1.7; }
+        .footer-column a:hover { color: #fff; }
+        .footer-links { list-style: none; } .footer-links li { margin-bottom: 10px; }
+        .footer-social { display: flex; gap: 20px; flex-wrap: wrap; margin-top: 10px; }
+        .footer-social a { display: flex; flex-direction: column; align-items: center; gap: 5px; color: #ffc107; transition: all 0.3s ease; }
+        .footer-social a:hover { color: #fff; transform: translateY(-3px); }
+        .footer-social .fab { font-size: 1.5em; }
+        .footer-social span { font-family: 'Montserrat', sans-serif; font-size: 0.7em; font-weight: 400; color: #ccc; transition: color 0.3s ease; }
+        .footer-social a:hover span { color: #fff; }
+        .footer-bottom { text-align: center; margin-top: 30px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.9em; }
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            header h1 { font-size: 2em; }
+            section h2 { font-size: 1.8em; }
+            .event-button { display: block; width: 90%; margin: 15px auto; }
+            .rules-list li { flex-direction: column; text-align: center; gap: 10px; }
+        }
+    </style>
+</head>
+<body>
+
+<div id="vanta-canvas"></div>
+
+<header>
+    <h1>Rulebook for TECHNOSAVIOUR 2025</h1>
+    <h3>Welcome to the official rulebook. Please read the rules carefully before registering.</h3>
+</header>
+
+<main>
+    <section id="general-rules">
+        <h2>General Instructions</h2>
+        <ul class="rules-list">
+            <li><i class="fas fa-id-card"></i><p>Participants are requested to bring their college ID card and/or a bonafide certificate.</p></li>
+            <li><i class="fas fa-link"></i><p>Participants must fill the Registration link to confirm their participation before 11.08.2025.</p></li>
+            <li><i class="fas fa-money-bill-wave"></i><p>Registration fee is Rs. 100/- per participant, payable via the GPay details on the home page.</p></li>
+            <li><i class="fas fa-exclamation-triangle"></i><p>Each participant can register for a maximum of two events. Please review the schedule below to avoid time conflicts.</p></li>
+            <li><i class="fas fa-users"></i><p>For group events, each student must register individually and pay together through one team representative.</p></li>
+            <li><i class="fas fa-clock"></i><p>Participants are requested to be present 15 minutes prior to the inaugural function.</p></li>
+            <li><i class="fas fa-check-circle"></i><p>Registration confirmation and spot registrations will take place between 08:00 AM and 09:15 AM on 12.08.2025. No further registrations will be accepted after this time.</p></li>
+            <li><i class="fas fa-map-marker-alt"></i><p>Participants must reach their respective event venues on time. The schedule is provided below.</p></li>
+            <li><i class="fas fa-ban"></i><p>Any form of misconduct, cheating, sabotage, vulgarity, or plagiarism will lead to  immediate disqualification.</p></li>
+            <li><i class="fas fa-gavel"></i><p>The decisions of the judges are final and binding.</p></li>
+            <li><i class="fas fa-coffee"></i><p>Refreshments and lunch will be provided to all participants.</p></li>
+        </ul>
+    </section>
+
+    <section id="event-options">
+        <h2>Detailed Event Rules</h2>
+        <div class="event-options">
+            <a class="event-button" href="./onstage.html" target="_blank" rel="noopener noreferrer"><i class="fas fa-theater-masks"></i> Onstage Events</a>
+            <a class="event-button" href="./offstage.html" target="_blank" rel="noopener noreferrer"><i class="fas fa-clipboard-list"></i> Offstage Events</a>
+            <a class="event-button" href="./online.html" target="_blank" rel="noopener noreferrer"><i class="fas fa-laptop-code"></i> Online Events</a>
+        </div>
+    </section>
+
+    <section id="schedule" class="event-schedule">
+        <h2>Event Schedule</h2>
+        <p>(Tentative Schedule - Subject to Change)</p>
+        <div class="schedule-special"><i class="fas fa-bullhorn"></i> INAUGURATION (9:30 AM - 10:30 AM) at Auditorium</div>
+        <div class="schedule-cards">
+            <div class="schedule-card"><h4><i class="fas fa-stopwatch"></i> 11:00 AM - 11:50 AM</h4><div class="event-item"><i class="fas fa-puzzle-piece"></i> Connections <span class="venue">Auditorium</span></div><div class="event-item"><i class="fas fa-eye"></i> Spotters <span class="venue">PG Lab</span></div></div>
+            <div class="schedule-card"><h4><i class="fas fa-stopwatch"></i> 12:00 PM - 12:40 PM</h4><div class="event-item"><i class="fas fa-comments"></i> Heads Up <span class="venue">Auditorium</span></div><div class="event-item"><i class="fas fa-paint-brush"></i> Face Painting <span class="venue">2 UG</span></div></div>
+            <div class="schedule-card"><h4><i class="fas fa-stopwatch"></i> 12:50 PM - 1:30 PM</h4><div class="event-item"><i class="fas fa-lightbulb"></i> Ideathon <span class="venue">Auditorium</span></div><div class="event-item"><i class="fas fa-question-circle"></i> Quiz <span class="venue">1 UG</span></div><div class="event-item"><i class="fas fa-blender"></i> Cook Without Fire <span class="venue">UG Lab</span></div></div>
+        </div>
+        <div class="schedule-special" style="margin-top: 20px;"><i class="fas fa-utensils"></i> LUNCH BREAK (1:30 PM - 2:15 PM)</div>
+        <div class="schedule-cards">
+            <div class="schedule-card"><h4><i class="fas fa-stopwatch"></i> 2:15 PM - 3:15 PM</h4><div class="event-item"><i class="fas fa-microphone-alt"></i> Debate <span class="venue">Auditorium</span></div><div class="event-item"><i class="fas fa-map-signs"></i> Treasure Hunt <span class="venue">2 UG & UG Lab</span></div><div class="event-item"><i class="fas fa-gavel"></i> Science Auction <span class="venue">3 UG</span></div></div>
+            <div class="schedule-card"><h4><i class="fas fa-stopwatch"></i> 3:30 PM - 4:20 PM</h4><div class="event-item"><i class="fas fa-star"></i> Surprise Event <span class="venue">Auditorium</span></div><div class="event-item"><i class="fas fa-brain"></i> Problem Solving <span class="venue">3 UG</span></div></div>
+        </div>
+        <div class="schedule-special" style="margin-top: 20px;"><i class="fas fa-trophy"></i> VALEDICTORY SESSION (5:00 PM Onwards)</div>
+    </section>
+</main>
+
+<footer>
+    <div class="footer-container">
+        <div class="footer-column"><h4>About Technosaviour</h4><p>A premier fest by the PG Dept. of Biotechnology at DG Vaishnav College, fostering innovation and talent in the life sciences.</p></div>
+        <div class="footer-column"><h4>Quick Links</h4><ul class="footer-links"><li><a href="index.html">Home Page</a></li><li><a href="#general-rules">General Rules</a></li><li><a href="#schedule">Event Schedule</a></li><li><a href="index.html#contact">Contact Us</a></li></ul></div>
+        <div class="footer-column"><h4>Follow Us</h4><div class="footer-social"><a href="https://www.instagram.com/dgvc_biotech?igsh=MW0zNnF6cmhkc3U5Mg=="><i class="fab fa-instagram"></i><span>DGVC-BIOTECH</span></a><a href="https://www.instagram.com/technosaviourclub?igsh=cG4zZ2o3dWhzbzZz"><i class="fab fa-instagram"></i><span>TECHNOSAVIOUR</span></a><a href="https://www.linkedin.com/company/dgvcbiotech/"><i class="fab fa-linkedin"></i><span>DGVC-BIOTECH</span></a><a href="https://youtube.com/@dgvcbiotech6733"><i class="fab fa-youtube"></i><span>DGVC-BIOTECH</span></a></div></div>
+    </div>
+   <div class="footer-bottom">© 2025 TECHNOSAVIOUR. All rights reserved. | Designed by KHARAN BIELLU 😉</div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.cells.min.js"></script>
+<script>
+    // VANTA.js for Biotech Background - OPTIMIZED
+    VANTA.CELLS({
+        el: "#vanta-canvas", // Corrected selector to target the div
+        mouseControls: true,
+        touchControls: true,
+        gyroControls: false,
+        minHeight: 200.00,
+        minWidth: 200.00,
+        scale: 1.00,
+        scaleMobile: 2.00, // Make cells larger on mobile for better visibility & performance
+        color1: 0x6a1b9a,
+        color2: 0xf50057,
+        size: 3.00,       // Increase cell size
+        speed: 1.00       // Decrease speed to reduce CPU load
+    });
+</script>
+
+</body>
+</html>

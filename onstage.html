@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Onstage Events - TECHNOSAVIOUR 2025</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Oswald:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        /* CSS Reset & Basic Setup */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Oswald', sans-serif; color: #ffffff; background-color: #0d051c; line-height: 1.6; text-rendering: optimizeSpeed; overflow-x: hidden; }
+        #vanta-canvas { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -1; }
+        main { position: relative; z-index: 5; padding: 25px 10px; }
+
+        /* Header (Styled like a Section) */
+        header { text-align: center; padding: 30px 20px; margin: 0 auto 25px; max-width: 950px; border-radius: 20px; background: radial-gradient(circle, rgba(30, 0, 56, 0.6) 0%, rgba(10, 5, 25, 0.5) 100%); backdrop-filter: blur(15px); box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3); border: 1px solid rgba(255, 255, 255, 0.1); }
+        header h1 { font-size: 2.5em; color: #ffc107; margin-bottom: 15px; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); }
+        header h2 { font-size: 1.2em; color: #ddd; text-shadow: 1px 1px 2px rgba(0,0,0,0.5); font-family: 'Montserrat', sans-serif; font-weight: 400; }
+        
+        /* Event Grid Layout */
+        .event-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Professional Event Card */
+        .event-card {
+            background: linear-gradient(145deg, rgba(30, 0, 56, 0.6), rgba(10, 5, 25, 0.5));
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+        .event-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+            border-color: #ffc107;
+        }
+        .event-card .icon {
+            font-size: 3.5em;
+            color: #ffc107;
+            margin-bottom: 15px;
+            text-shadow: 0 0 15px rgba(255, 193, 7, 0.5);
+        }
+        .event-card h3 {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+        }
+        .event-card .rules-button {
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 1px solid #00e5ff;
+            color: #00e5ff;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        .event-card .rules-button:hover {
+            background-color: #00e5ff;
+            color: #1e0038;
+            box-shadow: 0 0 15px rgba(0, 229, 255, 0.5);
+        }
+
+        /* Modal for Rules */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(5px);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+        .modal.show {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .modal-content {
+            background: radial-gradient(circle, #3c1053, #1e0038);
+            border-radius: 15px;
+            padding: 30px;
+            max-width: 600px;
+            width: 90%;
+            border: 1px solid rgba(255, 193, 7, 0.5);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+            position: relative;
+            transform: scale(0.95);
+            transition: transform 0.3s ease;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+        .modal.show .modal-content {
+            transform: scale(1);
+        }
+        .modal-content h2 {
+            font-size: 2em;
+            color: #ffc107;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .modal-content ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .modal-content li {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.1em;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: flex-start;
+        }
+        .modal-content li .fas {
+            color: #ffc107;
+            margin-right: 15px;
+            margin-top: 5px;
+        }
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 1.8em;
+            color: #fff;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .modal-close:hover {
+            transform: rotate(90deg);
+            color: #ffc107;
+        }
+
+        /* Enhanced Footer */
+        footer { padding: 40px 20px 20px; background-color: #0d051c; color: #ccc; border-top: 2px solid transparent; border-image: linear-gradient(to right, #6a1b9a, #e91e63) 1; margin-top: 40px; }
+        .footer-container { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; text-align: left; }
+        .footer-column h4 { font-size: 1.3em; color: #ffc107; margin-bottom: 15px; text-transform: uppercase; }
+        .footer-column p, .footer-column a { font-family: 'Montserrat', sans-serif; font-size: 0.9em; color: #ccc; text-decoration: none; transition: color 0.3s ease; line-height: 1.7; }
+        .footer-column a:hover { color: #fff; }
+        .footer-links { list-style: none; } .footer-links li { margin-bottom: 10px; }
+        .footer-social { display: flex; gap: 20px; flex-wrap: wrap; margin-top: 10px; }
+        .footer-social a { display: flex; flex-direction: column; align-items: center; gap: 5px; color: #ffc107; transition: all 0.3s ease; }
+        .footer-social a:hover { color: #fff; transform: translateY(-3px); }
+        .footer-social .fab { font-size: 1.5em; }
+        .footer-social span { font-family: 'Montserrat', sans-serif; font-size: 0.7em; font-weight: 400; color: #ccc; transition: color 0.3s ease; }
+        .footer-social a:hover span { color: #fff; }
+        .footer-bottom { text-align: center; margin-top: 30px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.9em; }
+
+        @media (max-width: 768px) {
+            header h1 { font-size: 2em; }
+        }
+    </style>
+</head>
+<body>
+
+<div id="vanta-canvas"></div>
+
+<header>
+    <h1>Onstage Events</h1>
+    <h2>Click "View Rules" on any event to see the details.</h2>
+</header>
+
+<main>
+    <div class="event-grid">
+        <!-- Event Card 1: Ideathon -->
+        <div class="event-card" data-title="Ideathon" 
+             data-rules="3 participants per team, 1 team per department. | Each team will have a maximum of 10 slides to present their idea, along with 5 minutes for presentation and 2 minutes for a Q&A session. | Presentations should focus on the idea’s impact, sustainability, and scalability. | Use of offensive or inappropriate content will result in disqualification. | Strictly adhere to the time limit and 10-slide maximum. | Judges’ decisions regarding originality, feasibility, and presentation quality will be final. | The team with the most innovative and well-presented idea that meets the Sustainable Development Goals will be declared the winner. |">
+            <div class="icon"><i class="fas fa-lightbulb"></i></div>
+            <h3>Ideathon</h3>
+            <button class="rules-button">View Rules</button>
+        </div>
+
+        <!-- Event Card 2: Connections -->
+        <div class="event-card" data-title="Connections"
+             data-rules="2 participants per team, 1 team per department. | The event will consist of multiple rounds where the participants will be given sets of related words or concepts. | Teams must identify the connection between the given words or concepts and give the final answer within the time limit. | Teams must discuss and give their final answer within the time limit. | No external help or devices are allowed during the competition. | Each correct answer earns points, and incorrect answers will not be penalized. | Judges’ decisions on connections will be final and binding. | The team with the highest total score across all rounds will be declared the winner. |">
+            <div class="icon"><i class="fas fa-puzzle-piece"></i></div>
+            <h3>Connections</h3>
+            <button class="rules-button">View Rules</button>
+        </div>
+
+        <!-- Event Card 3: Heads Up -->
+        <div class="event-card" data-title="Heads Up"
+             data-rules="2 participants per team, 1 team per department. | One player will guess the word displayed on the board, while the other gives indirect verbal clues to help identify the word. | Use of sentences as clues or gestures will lead to disqualification. | Players can say “PASS” to skip a word. | The team that guesses the most words correctly wins. | Judge’s decision will be final. |">
+            <div class="icon"><i class="fas fa-comments"></i></div>
+            <h3>Heads Up</h3>
+            <button class="rules-button">View Rules</button>
+        </div>
+
+        <!-- Event Card 4: Debate -->
+        <div class="event-card" data-title="Debate"
+             data-rules="2 participants per team, 1 team per department. | Topics will be provided 30 minutes prior to the start of the debate. | Each team will have 5 minutes for preparation and 10 minutes to present their arguments. | Teams must present arguments both for and against the given topic. | Offensive language or personal attacks will result in disqualification. | Teams must bring their own materials (e.g., notebooks, pens) for note-taking. | Participants are encouraged to present data and facts to support their arguments. | Interruptions during the opponent's presentation are not allowed; time will be provided for rebuttals. | Time limits must be strictly adhered to; exceeding the limit will result in point deductions. | Decisions made by the judging panel are final and binding. | The team with the most points based on content, clarity, delivery, and rebuttal wins. |">
+            <div class="icon"><i class="fas fa-microphone-alt"></i></div>
+            <h3>Debate</h3>
+            <button class="rules-button">View Rules</button>
+        </div>
+
+        <!-- Event Card 5: Surprise Event -->
+        <div class="event-card" data-title="Surprise Event"
+             data-rules="3 participants per team, 1 team per department/institution.|Further details will be revealed during the event. Stay tuned and be prepared for anything!">
+            <div class="icon"><i class="fas fa-star"></i></div>
+            <h3>Surprise Event</h3>
+            <button class="rules-button">View Rules</button>
+        </div>
+    </div>
+</main>
+
+<!-- Modal Structure -->
+<div class="modal" id="rules-modal">
+    <div class="modal-content">
+        <i class="fas fa-times modal-close" id="modal-close"></i>
+        <h2 id="modal-title">Event Rules</h2>
+        <ul id="modal-rules">
+            <!-- Rules will be dynamically inserted here -->
+        </ul>
+    </div>
+</div>
+
+<footer>
+    <div class="footer-container">
+        <div class="footer-column">
+            <h4>About Technosaviour</h4>
+            <p>A premier fest by the PG Dept. of Biotechnology at DG Vaishnav College, fostering innovation and talent in the life sciences.</p>
+        </div>
+        <div class="footer-column">
+            <h4>Quick Links</h4>
+            <ul class="footer-links">
+                <li><a href="index.html">Home Page</a></li>
+                <li><a href="rulebook.html">Full Rulebook</a></li>
+                <li><a href="offstage.html">Offstage Events</a></li>
+                <li><a href="online.html">Online Events</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h4>Follow Us</h4>
+            <div class="footer-social">
+                <a href="https://www.instagram.com/dgvc_biotech?igsh=MW0zNnF6cmhkc3U5Mg=="><i class="fab fa-instagram"></i><span>DGVC-BIOTECH</span></a>
+                <a href="https://www.instagram.com/technosaviourclub?igsh=cG4zZ2o3dWhzbzZz"><i class="fab fa-instagram"></i><span>TECHNOSAVIOUR</span></a>
+                <a href="https://www.linkedin.com/company/dgvcbiotech/"><i class="fab fa-linkedin"></i><span>DGVC-BIOTECH</span></a>
+                <a href="https://youtube.com/@dgvcbiotech6733"><i class="fab fa-youtube"></i><span>DGVC-BIOTECH</span></a>
+            </div>
+        </div>
+    </div>
+   <div class="footer-bottom">© 2025 TECHNOSAVIOUR. All rights reserved. | Designed by KHARAN BIELLU 😉</div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.cells.min.js"></script>
+<script>
+    // VANTA.js for Biotech Background
+    VANTA.CELLS({ el: "body", mouseControls: true, touchControls: true, gyroControls: false, minHeight: 200.00, minWidth: 200.00, scale: 1.00, scaleMobile: 1.00, color1: 0x6a1b9a, color2: 0xf50057, backgroundColor: 0x0d051c, size: 2.50, speed: 1.50 });
+
+    // Modal Logic
+    document.addEventListener('DOMContentLoaded', function() {
+        const modal = document.getElementById('rules-modal');
+        const modalTitle = document.getElementById('modal-title');
+        const modalRules = document.getElementById('modal-rules');
+        const closeModalBtn = document.getElementById('modal-close');
+        const ruleButtons = document.querySelectorAll('.rules-button');
+
+        const openModal = (title, rulesString) => {
+            modalTitle.textContent = title;
+            modalRules.innerHTML = ''; // Clear previous rules
+            
+            const rulesArray = rulesString.split('|');
+            rulesArray.forEach(ruleText => {
+                if (ruleText.trim()) {
+                    const li = document.createElement('li');
+                    const icon = document.createElement('i');
+                    icon.className = 'fas fa-chevron-right';
+                    li.appendChild(icon);
+                    li.appendChild(document.createTextNode(' ' + ruleText.trim()));
+                    modalRules.appendChild(li);
+                }
+            });
+            
+            modal.classList.add('show');
+        };
+
+        const closeModal = () => {
+            modal.classList.remove('show');
+        };
+
+        ruleButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const card = button.closest('.event-card');
+                const title = card.dataset.title;
+                const rules = card.dataset.rules;
+                openModal(title, rules);
+            });
+        });
+
+        closeModalBtn.addEventListener('click', closeModal);
+
+        // Close modal when clicking on the background overlay
+        modal.addEventListener('click', (event) => {
+            if (event.target === modal) {
+                closeModal();
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
