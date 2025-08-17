@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TECHNOSAVIOUR 2025 v2.5</title>
+    <!-- FIXED FONT LINK -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Oswald:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
@@ -14,6 +15,69 @@
         #vanta-canvas { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -1; }
         img { max-width: 100%; display: block; }
 
+        /* --- NEW POPUP DESIGN --- */
+        .popup-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            display: flex; justify-content: center; align-items: center;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            pointer-events: none;
+        }
+        .popup-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .popup-content {
+            background: radial-gradient(circle, rgba(30, 0, 56, 0.9) 0%, rgba(10, 5, 25, 0.85) 100%);
+            padding: 30px; border-radius: 20px; text-align: center;
+            max-width: 500px; width: 90%;
+            position: relative;
+            border: 2px solid transparent;
+            background-clip: padding-box;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+            transform: translateY(-20px) scale(0.95);
+            transition: transform 0.4s ease;
+        }
+        .popup-overlay.active .popup-content {
+            transform: translateY(0) scale(1);
+        }
+        .popup-content::before {
+            content: '';
+            position: absolute;
+            top: 0; right: 0; bottom: 0; left: 0;
+            z-index: -1;
+            margin: -2px;
+            border-radius: inherit;
+            background: linear-gradient(145deg, #e91e63, #6a1b9a);
+        }
+        .popup-icon {
+            width: 70px; height: 70px;
+            margin: -65px auto 15px;
+            background: linear-gradient(145deg, #e91e63, #6a1b9a);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 2em;
+            color: #fff;
+            box-shadow: 0 0 20px rgba(233, 30, 99, 0.7);
+            animation: popup-icon-pulse 2.5s infinite ease-in-out;
+        }
+        @keyframes popup-icon-pulse {
+            0% { transform: scale(1); box-shadow: 0 0 20px rgba(233, 30, 99, 0.7); }
+            50% { transform: scale(1.05); box-shadow: 0 0 30px rgba(106, 27, 154, 0.8); }
+            100% { transform: scale(1); box-shadow: 0 0 20px rgba(233, 30, 99, 0.7); }
+        }
+        .popup-content h2 { color: #ffc107; font-size: 2em; margin-bottom: 15px; text-transform: uppercase; }
+        .popup-content p { color: #ddd; margin-bottom: 15px; font-family: 'Montserrat', sans-serif; line-height: 1.6; }
+        .popup-content .popup-subtext { font-size: 0.8em; opacity: 0.8; margin-bottom: 25px; }
+        .popup-buttons { display: flex; flex-direction: column; gap: 10px; align-items: center; }
+        .popup-button { background-color: #ffc107; color: #1e0038; padding: 12px 25px; border-radius: 8px; font-size: 1em; font-weight: 600; text-decoration: none; transition: all 0.3s ease; border: none; cursor: pointer; display: inline-block; width: 100%; max-width: 250px; }
+        .popup-button:hover { background-color: #00e5ff; color: #fff; transform: translateY(-2px); }
+        .popup-button.secondary { background-color: transparent; border: 1px solid #ffc107; color: #ffc107; }
+        .popup-button.secondary:hover { background-color: rgba(255, 193, 7, 0.1); }
+        
         /* Header */
         header { display: flex; justify-content: space-between; align-items: center; padding: 15px 25px; background-color: rgba(10, 5, 25, 0.6); backdrop-filter: blur(15px); border-bottom: 1px solid rgba(255, 0, 150, 0.3); box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); position: sticky; top: 0; z-index: 100; }
         .college-logo { flex-shrink: 0; width: 100px; }
@@ -72,14 +136,40 @@
         /* 2x2 Grid Layout */
         .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
         @media (min-width: 620px) { .card-grid { grid-template-columns: repeat(2, 1fr); } }
-        .info-card { background: rgba(0,0,0,0.3); padding: 20px; border-radius: 15px; border: 1px solid rgba(255,255,255,0.1); text-align: center; transition: all 0.3s ease; position: relative; will-change: transform; }
+        .info-card { background: rgba(0,0,0,0.3); padding: 25px; border-radius: 15px; border: 1px solid rgba(255,255,255,0.1); text-align: center; transition: all 0.3s ease; position: relative; will-change: transform; display: flex; flex-direction: column; justify-content: space-between; }
         .info-card:hover { transform: translateY(-5px); background: rgba(0,0,0,0.5); }
         .info-card .fas { font-size: 1.8em; color: #ffc107; margin-bottom: 10px; }
-        .info-card h3 { font-size: 1.3em; margin-bottom: 5px; } .info-card p { color: #ccc; font-size: 1em; }
-        .touch-icon { font-size: 1em; color: rgba(255, 255, 255, 0.8); background-color: rgba(0, 0, 0, 0.3); width: 38px; height: 38px; display: flex; justify-content: center; align-items: center; border-radius: 50%; border: 1px solid rgba(255, 255, 255, 0.3); transition: all 0.4s ease; cursor: pointer; position: absolute; bottom: 15px; right: 15px; animation: icon-pulse 2.5s infinite ease-in-out; }
-        .touch-icon:hover { background-color: #00e5ff; color: #fff; transform: scale(1.1); animation: none; }
-        @keyframes icon-pulse { 0% { box-shadow: 0 0 0 0 rgba(0, 229, 255, 0.5); } 70% { box-shadow: 0 0 0 8px rgba(0, 229, 255, 0); } 100% { box-shadow: 0 0 0 0 rgba(0, 229, 255, 0); } }
-
+        .info-card h3 { font-size: 1.3em; margin-bottom: 5px; } .info-card p { color: #ccc; font-size: 1.1em; letter-spacing: 1px; }
+        
+        /* NEW Call Button Styling */
+        .call-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 15px;
+            padding: 8px 18px;
+            border-radius: 50px;
+            background-color: rgba(0, 229, 255, 0.15);
+            border: 1px solid #00e5ff;
+            color: #00e5ff;
+            text-decoration: none;
+            font-weight: 600;
+            font-family: 'Montserrat', sans-serif;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .call-button:hover {
+            background-color: #00e5ff;
+            color: #1e0038;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 15px rgba(0, 229, 255, 0.4);
+        }
+        .call-button .fas {
+            font-size: 0.9em;
+            margin: 0;
+        }
+        
         /* Gallery & Slideshow */
         .slideshow-container { max-width: 800px; position: relative; margin: auto; border-radius: 15px; overflow: hidden; }
         .mySlides { display: none; } .mySlides img { width: 100%; border-radius: 15px; border: 2px solid rgba(255, 255, 255, 0.2); }
@@ -101,7 +191,7 @@
 
         /* Enhanced Footer */
         footer { padding: 40px 20px 20px; background-color: #0d051c; color: #ccc; border-top: 2px solid transparent; border-image: linear-gradient(to right, #6a1b9a, #e91e63) 1; }
-        .footer-container { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; text-align: left; }
+        .footer-container { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; text-align: left; }
         .footer-column h4 { font-size: 1.3em; color: #ffc107; margin-bottom: 15px; text-transform: uppercase; }
         .footer-column p, .footer-column a { font-family: 'Montserrat', sans-serif; font-size: 0.9em; color: #ccc; text-decoration: none; transition: color 0.3s ease; line-height: 1.7; }
         .footer-column a:hover { color: #fff; }
@@ -112,14 +202,38 @@
         .footer-social .fab { font-size: 1.5em; }
         .footer-social span { font-family: 'Montserrat', sans-serif; font-size: 0.7em; font-weight: 400; color: #ccc; transition: color 0.3s ease; }
         .footer-social a:hover span { color: #fff; }
+
+        /* Rating and Suggestions Form */
+        .rating-stars { display: flex; justify-content: center; margin-bottom: 15px; }
+        .rating-stars .fa-star { font-size: 1.5em; color: #ccc; cursor: pointer; transition: color 0.3s ease; margin: 0 5px; }
+        .rating-stars .fa-star:hover, .rating-stars .fa-star.active { color: #ffc107; text-shadow: 0 0 8px rgba(255, 193, 7, 0.7); }
+        #feedback-form textarea { width: 100%; background-color: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 8px; padding: 10px; color: #fff; font-family: 'Montserrat', sans-serif; resize: vertical; margin-bottom: 10px; }
+        #feedback-form button { width: 100%; background-color: #ffc107; color: #1e0038; padding: 10px; border: none; border-radius: 8px; font-weight: 600; cursor: pointer; transition: background-color 0.3s ease; }
+        #feedback-form button:hover { background-color: #00e5ff; }
+        #thank-you-message p { font-size: 1.1em; font-family: 'Montserrat', sans-serif; color: #00e5ff; text-align: center; }
+
         .footer-bottom { text-align: center; margin-top: 30px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.9em; }
 
         /* Media Queries */
         @media (min-width: 768px) { .hero-buttons { flex-direction: row; } #hero h1 { font-size: 4em; } section h2 { font-size: 2.8em; } .header-text h1 { font-size: 1.8em; } }
+        @media (min-width: 480px) { .popup-buttons { flex-direction: row; justify-content: center; } .popup-button { width: auto; } }
         @media (max-width: 600px) { .ticker-label { display: none; } .header-text h1 { font-size: 1.1em; } }
     </style>
 </head>
 <body>
+
+<div class="popup-overlay" id="welcome-popup">
+    <div class="popup-content">
+        <div class="popup-icon"><i class="fa-solid fa-rocket"></i></div>
+        <h2>Welcome to Technosaviour 2025</h2>
+        <p> Get a better view on moving cells on the background when viewed on a laptop or desktop for the full experience. This site will work good on other devices too. Feel free to leave feedback to help me improve!</p>
+        <p class="popup-subtext">Created and designed by Kharan (DGVC-BIOTECH ALUMNI).</p>
+        <div class="popup-buttons">
+            <button class="popup-button" id="continue-button">Continue to Website</button>
+            <a href="#feedback-section" class="popup-button secondary" id="rate-website-button">Give Ratings</a>
+        </div>
+    </div>
+</div>
 
 <div id="vanta-canvas"></div>
 
@@ -225,10 +339,21 @@
     <section id="contact">
         <h2>Contact Us</h2>
         <div class="card-grid">
-            <div class="info-card"><i class="fas fa-user"></i><h3>Mr. Deepak</h3><h4>President</h4><p>6369902919</p><a href="tel: 6369902919" class="touch-icon"><i class="fas fa-phone"></i></a></div>
-            <div class="info-card"><i class="fas fa-user"></i><h3>Ms. Yogithaa Ramesh</h3><h4> Vice President</h4><p>9080488598</p><a href="tel:9080488598" class="touch-icon"><i class="fas fa-phone"></i></a></div>
-            <div class="info-card"><i class="fas fa-user"></i><h3>Mr. Kuralarhassan</h3><h4>Secretary</h4><p>9445505156</p><a href="tel:9445505156" class="touch-icon"><i class="fas fa-phone"></i></a></div>
-            <div class="info-card"><i class="fas fa-user"></i><h3>Mr. Balaji</h3><h4>Joint Secretary</h4></i></a></div>
+            <div class="info-card">
+                <div><i class="fas fa-user"></i><h3>Mr. Deepak</h3><h4>President</h4><p>6369902919</p></div>
+                <a href="tel:6369902919" class="call-button"><i class="fas fa-phone"></i><span>Call</span></a>
+            </div>
+            <div class="info-card">
+                <div><i class="fas fa-user"></i><h3>Ms. Yogithaa Ramesh</h3><h4> Vice President</h4><p>9080488598</p></div>
+                <a href="tel:9080488598" class="call-button"><i class="fas fa-phone"></i><span>Call</span></a>
+            </div>
+            <div class="info-card">
+                <div><i class="fas fa-user"></i><h3>Mr. Kuralarhassan</h3><h4>Secretary</h4><p>9445505156</p></div>
+                <a href="tel:9445505156" class="call-button"><i class="fas fa-phone"></i><span>Call</span></a>
+            </div>
+            <div class="info-card">
+                <div><i class="fas fa-user"></i><h3>Mr. Balaji</h3><h4>Joint Secretary</h4></div>
+            </div>
         </div>
     </section>
 </main>
@@ -258,6 +383,26 @@
                 <a href="https://youtube.com/@dgvcbiotech6733"><i class="fab fa-facebook"></i><span>DGVC-BIOTECH</span></a>
             </div>
         </div>
+        <div class="footer-column" id="feedback-section">
+            <h4>Rate Our Website</h4>
+            <div id="feedback-form-container">
+                <form id="feedback-form" action="https://formspree.io/f/xovlzjzg" method="POST">
+                    <div class="rating-stars">
+                        <i class="fas fa-star" data-value="1"></i>
+                        <i class="fas fa-star" data-value="2"></i>
+                        <i class="fas fa-star" data-value="3"></i>
+                        <i class="fas fa-star" data-value="4"></i>
+                        <i class="fas fa-star" data-value="5"></i>
+                    </div>
+                    <input type="hidden" name="rating" id="rating-value" value="">
+                    <textarea name="suggestion" placeholder="Have any suggestions?" required></textarea>
+                    <button type="submit">Submit Feedback</button>
+                </form>
+            </div>
+            <div id="thank-you-message" style="display: none;">
+                <p>Thanks for your Feedback. It will surely help my future projects.</p>
+            </div>
+        </div>
     </div>
     <div class="footer-bottom">© 2025 TECHNOSAVIOUR. All rights reserved. | Designed by KHARAN BIELLU 😉</div>
 </footer>
@@ -274,12 +419,12 @@
         minHeight: 200.00,
         minWidth: 200.00,
         scale: 1.00,
-        scaleMobile: 2.00, // Make cells larger on mobile for better visibility & performance
+        scaleMobile: 2.00,
         color1: 0x6a1b9a,
         color2: 0xf50057,
         backgroundColor: 0x0d051c,
-        size: 3.00,       // Increase cell size
-        speed: 1.00       // Decrease speed to reduce CPU load
+        size: 3.00,
+        speed: 1.00
     });
 
     // Slideshow script
@@ -295,38 +440,115 @@
     }
     let slideInterval = setInterval(() => { plusSlides(1); }, 4000);
 
-    // Stop-and-Go Ticker script
+    // Stop-and-Go Ticker script & Popup script
     document.addEventListener('DOMContentLoaded', function() {
         const tickerItems = document.querySelectorAll('.ticker-item');
-        if (tickerItems.length === 0) return;
-        let currentItemIndex = -1;
+        if (tickerItems.length > 0) {
+            let currentItemIndex = -1;
 
-        function showNextItem() {
-            const lastItemIndex = currentItemIndex;
-            currentItemIndex = (currentItemIndex + 1) % tickerItems.length;
+            function showNextItem() {
+                const lastItemIndex = currentItemIndex;
+                currentItemIndex = (currentItemIndex + 1) % tickerItems.length;
 
-            const lastItem = (lastItemIndex >= 0) ? tickerItems[lastItemIndex] : null;
-            const currentItem = tickerItems[currentItemIndex];
+                const lastItem = (lastItemIndex >= 0) ? tickerItems[lastItemIndex] : null;
+                const currentItem = tickerItems[currentItemIndex];
 
-            if (lastItem) {
-                lastItem.classList.add('exit');
-                lastItem.classList.remove('active');
+                if (lastItem) {
+                    lastItem.classList.add('exit');
+                    lastItem.classList.remove('active');
+                }
+                
+                currentItem.classList.remove('exit');
+                currentItem.classList.add('active');
+
+                setTimeout(() => {
+                    if (lastItem) lastItem.classList.remove('exit');
+                }, 800);
             }
             
-            currentItem.classList.remove('exit');
-            currentItem.classList.add('active');
-
-            setTimeout(() => {
-                if (lastItem) lastItem.classList.remove('exit');
-            }, 800); // Corresponds to CSS transition duration
+            showNextItem();
+            setInterval(showNextItem, 3800);
         }
+
+        // --- Popup script ---
+        const popup = document.getElementById('welcome-popup');
+        const continueButton = document.getElementById('continue-button');
+        const rateWebsiteButton = document.getElementById('rate-website-button');
+
+        function closePopup() {
+            popup.classList.remove('active');
+        }
+
+        // Show popup on load
+        setTimeout(() => {
+            if (popup) popup.classList.add('active');
+        }, 50);
+
+        if (continueButton) continueButton.addEventListener('click', closePopup);
+        if (rateWebsiteButton) rateWebsiteButton.addEventListener('click', closePopup);
+
+        // --- Rating and Suggestion script ---
+        const stars = document.querySelectorAll('.rating-stars .fa-star');
+        const ratingValue = document.getElementById('rating-value');
+        if (stars.length > 0) {
+            stars.forEach(star => {
+                star.addEventListener('click', () => {
+                    const value = star.getAttribute('data-value');
+                    ratingValue.value = value;
+                    stars.forEach(s => {
+                        s.classList.remove('active');
+                        if (s.getAttribute('data-value') <= value) {
+                            s.classList.add('active');
+                        }
+                    });
+                });
+            });
+        }
+
+        // --- Formspree submission script ---
+        const feedbackForm = document.getElementById('feedback-form');
         
-        showNextItem(); // Initial call
-        setInterval(showNextItem, 3800); // 3-second pause + 0.8s animation
+        async function handleSubmit(event) {
+            event.preventDefault();
+            const form = event.target;
+            const data = new FormData(form);
+            const thankYouMessage = document.getElementById('thank-you-message');
+            const formContainer = document.getElementById('feedback-form-container');
+
+            // Validation: Ensure a rating has been selected
+            if (!data.get('rating') || data.get('rating') === "") {
+                alert('Please select a star rating before submitting.');
+                return; // Stop the function
+            }
+
+            try {
+                const response = await fetch(form.action, {
+                    method: form.method,
+                    body: data,
+                    headers: { 'Accept': 'application/json' }
+                });
+
+                if (response.ok) {
+                    // Success!
+                    formContainer.style.display = 'none';
+                    thankYouMessage.style.display = 'block';
+                } else {
+                    // Handle server errors (e.g., from Formspree)
+                    console.error('Form submission failed:', response);
+                    alert('Oops! There was a problem submitting your feedback. Please check the Formspree URL and try again.');
+                }
+            } catch (error) {
+                // Handle network errors
+                console.error('A network error occurred:', error);
+                alert('Oops! A network error occurred. Please check your connection and try again.');
+            }
+        }
+
+        if(feedbackForm) {
+            feedbackForm.addEventListener("submit", handleSubmit);
+        }
     });
 </script>
 
 </body>
-
 </html>
-
