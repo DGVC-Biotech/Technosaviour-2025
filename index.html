@@ -101,7 +101,7 @@
         .hero-logo { flex-shrink: 0; }
         .club-logo-space img {
             width: 140px; display: block; border-radius: 50%;
-            /* ALL EFFECTS REMOVED */
+            animation: fadeInDown 1s ease-out;
         }
         .sdg-logo-placeholder {
             width: 140px; height: 140px;
@@ -110,19 +110,23 @@
             display: flex; align-items: center; justify-content: center;
             font-size: 3em;
             color: rgba(255, 255, 255, 0.5);
+            animation: fadeInDown 1s ease-out 0.2s;
+            animation-fill-mode: backwards;
             transition: all 0.3s ease;
         }
+        .sdg-logo-placeholder.mobile { display: none; } /* Hide mobile version on desktop */
         .sdg-logo-placeholder:hover { border-color: #00e5ff; color: #00e5ff; }
-        .hero-text-content {
-            text-align: center;
-            animation: fadeInDown 1s ease-out; /* Add animation to the container */
-        }
+        
+        .hero-text-content { text-align: center; }
         #hero h1 {
-            font-size: 3.5em; text-shadow: 0 3px 8px rgba(0, 0, 0, 0.7);
-            color: #ffc107;
+            font-size: 3.0em; text-shadow: 0 3px 8px rgba(0, 0, 0, 0.7);
+            color: #ffc107; animation: fadeInDown 1s ease-out 0.4s;
+            animation-fill-mode: backwards;
         }
         #hero p {
             font-size: 1.3em; color: #eee; margin-bottom: 15px;
+            animation: fadeInDown 1s ease-out 0.6s;
+            animation-fill-mode: backwards;
             font-family: 'Montserrat', sans-serif;
         }
         .hero-theme {
@@ -132,10 +136,13 @@
             font-weight: 600;
             margin-bottom: 25px;
             text-shadow: 0 0 10px rgba(0, 229, 255, 0.7);
+            animation: fadeInDown 1s ease-out 0.8s;
+            animation-fill-mode: backwards;
         }
         .hero-buttons {
             display: flex; gap: 15px; margin-top: 10px; justify-content: center;
-            animation: fadeInUp 1s ease-out;
+            animation: fadeInUp 1s ease-out 1s;
+            animation-fill-mode: backwards;
         }
         .hero-button {
             background-color: rgba(255, 255, 255, 0.1); backdrop-filter: blur(5px);
@@ -277,7 +284,15 @@
             .hero-content-wrapper {
                 flex-direction: column;
             }
-            .hero-logo { margin-bottom: 20px; }
+            .hero-logo.sdg-logo-placeholder.desktop {
+                display: none; /* Hide the desktop version on mobile */
+            }
+            .sdg-logo-placeholder.mobile {
+                display: flex; /* Show the mobile version */
+                width: 100px; height: 100px; font-size: 2.5em;
+                margin: 0 auto 20px;
+            }
+            .hero-buttons { flex-direction: column; align-items: center; }
         }
         @media (min-width: 768px) { .hero-buttons { flex-direction: row; } #hero h1 { font-size: 4em; } section h2 { font-size: 2.8em; } .college-info-text h1 { font-size: 1.8em; } }
         @media (min-width: 480px) { .popup-buttons { flex-direction: row; justify-content: center; } .popup-button { width: auto; } }
@@ -319,6 +334,7 @@
             <div class="hero-text-content">
                 <h1>TECHNOSAVIOUR 2025</h1>
                 <p>A Premier Fest for Life Science Innovators</p>
+                <div class="sdg-logo-placeholder mobile"><img src="10.png" alt="Club Logo" decoding="async"></div>
                 <h2 class="hero-theme">Theme: Innovating for a Greener Tomorrow</h2>
                 <div class="hero-buttons">
                     <a href="#google-form" class="hero-button">Register Now</a>
@@ -326,8 +342,8 @@
                     <a href="Technoflyer.pdf" class="hero-button">Flyer</a>
                 </div>
             </div>
-            <div class="hero-logo sdg-logo-placeholder">
-                <img src="10.png" alt="SDG Logo" decoding="async">
+            <div class="hero-logo sdg-logo-placeholder desktop">
+                <img src="10.png" alt="Club Logo" decoding="async">
             </div>
         </div>
     </section>
@@ -368,14 +384,14 @@
 
     <section id="gallery"><h2>Gallery</h2>
         <div class="slideshow-container">
-            <div class="mySlides fade"><img src="1.jpeg" alt="Gallery Image 1"><div class="caption-text">Wealth out of waste</div></div>
-            <div class="mySlides fade"><img src="2.jpeg" alt="Gallery Image 2"><div class="caption-text">Science Auction</div></div>
-            <div class="mySlides fade"><img src="0.jpeg" alt="Gallery Image 3"><div class="caption-text">Prize Distribution</div></div>
-            <div class="mySlides fade"><img src="3.jpeg" alt="Gallery Image 4"><div class="caption-text">Ideation</div></div>
-            <div class="mySlides fade"><img src="4.jpeg" alt="Gallery Image 4"><div class="caption-text">Overall Winners - Previous Edition</div></div>
-            <div class="mySlides fade"><img src="5.jpeg" alt="Gallery Image 4"><div class="caption-text">Runner up - Previous Edition</div></div>
-            <div class="mySlides fade"><img src="6.jpeg" alt="Gallery Image 4"><div class="caption-text">Debate</div></div>
-            <div class="mySlides fade"><img src="7.jpeg" alt="Gallery Image 4"><div class="caption-text">Team Collaboration - Surprise Event</div></div>
+            <div class="mySlides fade"><img src="1.jpeg" alt="Gallery Image 1"><div class="caption-text">Inauguration Ceremony</div></div>
+            <div class="mySlides fade"><img src="2.jpeg" alt="Gallery Image 2"><div class="caption-text">Guest Speaker Session</div></div>
+            <div class="mySlides fade"><img src="0.jpeg" alt="Gallery Image 3"><div class="caption-text">Student Presentations</div></div>
+            <div class="mySlides fade"><img src="3.jpeg" alt="Gallery Image 4"><div class="caption-text">Interactive Workshops</div></div>
+            <div class="mySlides fade"><img src="4.jpeg" alt="Gallery Image 4"><div class="caption-text">Award Distribution</div></div>
+            <div class="mySlides fade"><img src="5.jpeg" alt="Gallery Image 4"><div class="caption-text">Networking Event</div></div>
+            <div class="mySlides fade"><img src="6.jpeg" alt="Gallery Image 4"><div class="caption-text">Team Collaboration</div></div>
+            <div class="mySlides fade"><img src="7.jpeg" alt="Gallery Image 4"><div class="caption-text">Closing Ceremony</div></div>
             <a class="prev" onclick="plusSlides(-1)">❮</a><a class="next" onclick="plusSlides(1)">❯</a></div></section>
 
     <section id="about-college">
