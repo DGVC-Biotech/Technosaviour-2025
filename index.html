@@ -419,7 +419,7 @@
     </section>
 
     <section id="google-form"><h2>Registration Form</h2><h3>Kindly go through the rulebook before Registration</h3>
-      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScMh78FesliR99gFuFgMhUojv88gWnIYkzKi6LEzaytbSjaCQ/viewform?embedded=true" width="640" height="500" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScMh78FesliR99gFuFgMhUojv88gWnIYkzKi6LEzaytbSjaCQ/viewform?embedded=true" width="100%" height="500" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
 
     <section id="payment-details">
         <h2>Payment Information</h2>
@@ -456,6 +456,7 @@
             </div>
             <div class="info-card">
                 <div><i class="fas fa-user"></i><h3>Mr. Balaji</h3><h4>Joint Secretary</h4><p>8940048812</p></div>
+                <a href="tel:8940048812" class="call-button"><i class="fas fa-phone"></i><span>Call</span></a>
             </div>
         </div>
     </section>
@@ -483,7 +484,7 @@
                 <a href="https://www.instagram.com/technosaviourclub?igsh=cG4zZ2o3dWhzbzZz"><i class="fab fa-instagram"></i><span>TECHNOSAVIOUR</span></a>
                 <a href="https://www.linkedin.com/company/dgvcbiotech/"><i class="fab fa-linkedin"></i><span>DGVC-BIOTECH</span></a>
                 <a href="https://youtube.com/@dgvcbiotech6733"><i class="fab fa-youtube"></i><span>DGVC-BIOTECH</span></a>
-                <a href="https://youtube.com/@dgvcbiotech6733"><i class="fab fa-facebook"></i><span>DGVC-BIOTECH</span></a>
+                <a href="https://www.facebook.com/dgvc.biotech/"><i class="fab fa-facebook"></i><span>DGVC-BIOTECH</span></a>
             </div>
         </div>
         <div class="footer-column" id="feedback-section">
@@ -553,7 +554,13 @@
         const popup = document.getElementById('welcome-popup');
         const continueButton = document.getElementById('continue-button');
         const rateWebsiteButton = document.getElementById('rate-website-button');
-        function closePopup() { popup.classList.remove('active'); }
+        
+        // --- THIS IS THE CORRECTED FUNCTION ---
+        function closePopup() { 
+            // This change completely hides the popup, preventing it from blocking the form.
+            popup.style.display = 'none'; 
+        }
+        
         setTimeout(() => { if (popup) popup.classList.add('active'); }, 50);
         if (continueButton) continueButton.addEventListener('click', closePopup);
         if (rateWebsiteButton) rateWebsiteButton.addEventListener('click', closePopup);
@@ -624,7 +631,3 @@
 
 </body>
 </html>
-
-
-
-
