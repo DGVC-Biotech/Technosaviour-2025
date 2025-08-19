@@ -16,19 +16,21 @@
 
         /* --- POPUP DESIGN --- */
         .popup-overlay {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background-color: rgba(0, 0, 0, 0.7);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            display: flex; justify-content: center; align-items: center;
-            opacity: 0;
-            transition: opacity 0.4s ease;
-            pointer-events: none;
-        }
-        .popup-overlay.active {
-            opacity: 1;
-            pointer-events: auto;
-        }
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    display: flex; justify-content: center; align-items: center;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    /* This is the crucial line: it makes the overlay unclickable when not active */
+    pointer-events: none; 
+}
+.popup-overlay.active {
+    opacity: 1;
+    /* This makes the overlay clickable again, but only when it's visible */
+    pointer-events: auto;
+}
         .popup-content {
             background: radial-gradient(circle, rgba(30, 0, 56, 0.9) 0%, rgba(10, 5, 25, 0.85) 100%);
             padding: 30px; border-radius: 20px; text-align: center;
@@ -247,7 +249,7 @@
     overflow: visible;
 }
         #google-form h3 { font-size: 1em; color: #eee; margin-bottom: 20px; text-align: center; }
-        #google-form iframe { width: 100%; height: 500px; border: none; border-radius: 15px; }
+        #google-form iframe { width: 100%; height: 500px; border: none; border-radius: 15px;  position: relative; z-index: 9999 }
         .payment-card { display: flex; flex-wrap: wrap; background: linear-gradient(145deg, rgba(30, 0, 56, 0.8), rgba(10, 5, 25, 0.7)); border-radius: 15px; padding: 20px; max-width: 600px; margin: 0 auto; border: 1px solid rgba(255,255,255,0.2); gap: 20px; }
         .payment-card .qr-side { background-color: #fff; padding: 15px; border-radius: 10px; box-shadow: 0 0 20px rgba(255,255,255,0.5); text-align: center; flex: 1 1 200px; }
         .payment-card .qr-side img { width: 100%; height: auto; border-radius: 8px; }
@@ -634,4 +636,3 @@
 
 </body>
 </html>
-
