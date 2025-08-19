@@ -302,6 +302,20 @@
         @media (min-width: 768px) { .hero-buttons { flex-direction: row; } #hero h1 { font-size: 4em; } section h2 { font-size: 2.8em; } .college-info-text h1 { font-size: 1.8em; } }
         @media (min-width: 480px) { .popup-buttons { flex-direction: row; justify-content: center; } .popup-button { width: auto; } }
         @media (max-width: 600px) { .ticker-label { display: none; } .college-info-text h1 { font-size: 1.1em; } }
+
+        /* --- MOBILE-SPECIFIC FIX FOR UNCLICKABLE FORM --- */
+@media (max-width: 820px) {
+    #google-form {
+        position: relative; /* This is essential for z-index to work */
+        z-index: 100;     /* Lifts the whole form section above other content */
+    }
+
+    /* This "layering hack" forces the iframe onto a new rendering layer, fixing touch issues */
+    #google-form iframe {
+        transform: translateZ(0);
+        -webkit-transform: translateZ(0);
+    }
+}
     </style>
 </head>
 <body>
