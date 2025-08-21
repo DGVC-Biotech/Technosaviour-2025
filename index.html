@@ -271,9 +271,9 @@
         /* Enhanced Footer */
         footer { padding: 40px 20px 20px; background-color: #0d051c; color: #ccc; border-top: 2px solid transparent; border-image: linear-gradient(to right, #6a1b9a, #e91e63) 1; }
         .footer-container { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; text-align: left; }
-        .footer-column h4 { font-size: 1.3em; color: #ffc107; margin-bottom: 15px; text-transform: uppercase; }
-        .footer-column p, .footer-column a { font-family: 'Montserrat', sans-serif; font-size: 0.9em; color: #ccc; text-decoration: none; transition: color 0.3s ease; line-height: 1.7; }
-        .footer-column a:hover { color: #fff; }
+        .footer-column h4, .footer-feedback-column h4 { font-size: 1.3em; color: #ffc107; margin-bottom: 15px; text-transform: uppercase; }
+        .footer-column p, .footer-column a, .footer-feedback-column p, .footer-feedback-column a { font-family: 'Montserrat', sans-serif; font-size: 0.9em; color: #ccc; text-decoration: none; transition: color 0.3s ease; line-height: 1.7; }
+        .footer-column a:hover, .footer-feedback-column a:hover { color: #fff; }
         .footer-links { list-style: none; } .footer-links li { margin-bottom: 10px; }
         .footer-social { display: flex; gap: 20px; flex-wrap: wrap; margin-top: 10px; }
         .footer-social a { display: flex; flex-direction: column; align-items: center; gap: 5px; color: #ffc107; transition: all 0.3s ease; }
@@ -522,7 +522,7 @@
                 <a href="https://www.facebook.com/dgvc.biotech/"><i class="fab fa-facebook"></i><span>DGVC-BIOTECH</span></a>
             </div>
         </div>
-        <div class="footer-column" id="feedback-section">
+        <div class="footer-feedback-column" id="feedback-section">
             <h4>Rate Our Website</h4>
             <div id="feedback-form-container">
                 <form id="feedback-form" action="https://formspree.io/f/xovlzjzg" method="POST">
@@ -666,4 +666,3 @@
 
 </body>
 </html>
-
